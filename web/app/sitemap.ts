@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { equipmentCategories, services, siteUrl } from '@/data/site'
+import { equipmentItems, services, siteUrl } from '@/data/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -10,6 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/du-an` },
     { url: `${siteUrl}/lien-he` },
     ...services.map((s) => ({ url: `${siteUrl}/dich-vu/${s.slug}` })),
-    ...equipmentCategories.map((c) => ({ url: `${siteUrl}/thiet-bi/${c.slug}` })),
+    ...equipmentItems.map((e) => ({ url: `${siteUrl}/thiet-bi/${e.slug}` })),
   ]
 }

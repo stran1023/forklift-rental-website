@@ -1,11 +1,14 @@
+import Image from 'next/image'
 import { Factory, Wind } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { referenceProjects } from '@/data/site'
+import { realProjectPhotos, referenceProjects } from '@/data/site'
 
 const sectors = [
   { key: 'Dầu khí' as const, icon: Factory },
   { key: 'Điện gió' as const, icon: Wind },
 ]
+
+const galleryPhotos = [realProjectPhotos[2], realProjectPhotos[4], realProjectPhotos[5], realProjectPhotos[6]]
 
 export function ReferenceProjects() {
   return (
@@ -34,6 +37,17 @@ export function ReferenceProjects() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <p className="mb-4 text-xs font-bold tracking-wider text-white/60 uppercase">Hình ảnh công trình thực tế</p>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {galleryPhotos.map((src) => (
+              <div key={src} className="relative aspect-[4/3] overflow-hidden bg-white/5">
+                <Image src={src} alt="" aria-hidden="true" fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

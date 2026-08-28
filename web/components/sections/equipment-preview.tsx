@@ -1,14 +1,18 @@
-import { EquipmentCategoryCard } from '@/components/cards/equipment-category-card'
+import { EquipmentCard } from '@/components/cards/equipment-card'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { craneCapacitiesTon, equipmentCategories } from '@/data/site'
+import { craneCapacitiesTon, equipmentItems } from '@/data/site'
+
+const featuredSlugs = ['xe-cau-1250-tan', 'xe-cau-50-tan', 'xe-nang', 'xe-nang-nguoi']
 
 export function EquipmentPreview() {
+  const featured = featuredSlugs.map((slug) => equipmentItems.find((i) => i.slug === slug)).filter((i) => i !== undefined)
+
   return (
     <section className="bg-secondary">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">
         <SectionHeading
-          eyebrow="Xe cẩu & thiết bị"
-          title="Xe cẩu đa dạng tải trọng, sẵn sàng cho công việc"
+          eyebrow="Thiết bị cho thuê"
+          title="Tìm đúng thiết bị cho công trình của bạn"
           link={{ href: '/thiet-bi', label: 'Xem tất cả thiết bị' }}
         />
 
@@ -20,9 +24,9 @@ export function EquipmentPreview() {
           ))}
         </ul>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {equipmentCategories.map((category) => (
-            <EquipmentCategoryCard key={category.slug} category={category} />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {featured.map((item) => (
+            <EquipmentCard key={item.slug} item={item} />
           ))}
         </div>
       </div>
