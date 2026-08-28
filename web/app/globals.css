@@ -27,22 +27,22 @@
 }
 
 :root {
-  /* Brand palette sampled directly from asset/logo.jpg */
-  --brand-navy: #13459c;
-  --brand-red: #ed1925;
+  /* "Heavy Utility" industrial palette — Deep Industrial Blue + Safety Red,
+     tuned to stay close to the brand blue/red sampled from asset/logo.jpg. */
+  --brand-navy: #0d47a1;
+  --brand-red: #c62828;
 
-  --background: #ffffff;
-  --foreground: #10182b;
+  --background: #fcf9f8;
+  --foreground: #111827;
   --card: #ffffff;
-  --card-foreground: #10182b;
+  --card-foreground: #111827;
   --primary: var(--brand-navy);
   --primary-foreground: #ffffff;
-  --secondary: #eef2f7;
+  --secondary: #f5f6f7;
   --secondary-foreground: var(--brand-navy);
-  --muted: #f4f5f7;
+  --muted: #f5f6f7;
   --muted-foreground: #5b6472;
-  /* Accent is a deepened brand red so white CTA text clears 4.5:1 contrast. */
-  --accent: #d6151f;
+  --accent: var(--brand-red);
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --destructive-foreground: #ffffff;

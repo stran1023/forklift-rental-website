@@ -8,10 +8,20 @@ import { cn } from '@/lib/utils'
 
 type SortOrder = 'default' | 'capacity-asc' | 'capacity-desc'
 
-export function EquipmentCatalog({ items, initialQuery = '' }: { items: EquipmentItem[]; initialQuery?: string }) {
+export function EquipmentCatalog({
+  items,
+  initialQuery = '',
+  initialCategory = null,
+  initialCapacity = null,
+}: {
+  items: EquipmentItem[]
+  initialQuery?: string
+  initialCategory?: string | null
+  initialCapacity?: string | null
+}) {
   const [query, setQuery] = useState(initialQuery)
-  const [category, setCategory] = useState<string | null>(null)
-  const [capacity, setCapacity] = useState<string | null>(null)
+  const [category, setCategory] = useState<string | null>(initialCategory)
+  const [capacity, setCapacity] = useState<string | null>(initialCapacity)
   const [sort, setSort] = useState<SortOrder>('default')
 
   const filtered = useMemo(() => {

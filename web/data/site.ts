@@ -249,10 +249,10 @@ export const equipmentCategoryFilters = equipmentCategories.map((c) => c.title)
 
 /** Capacity filter only affects "Xe cẩu" listings — the only category with a verified tonnage figure. */
 export const capacityBuckets: CapacityBucket[] = [
-  { label: '< 10 tấn', min: 0, max: 10 },
+  { label: 'Dưới 10 tấn', min: 0, max: 10 },
   { label: '10 – 50 tấn', min: 10, max: 50 },
   { label: '50 – 100 tấn', min: 50, max: 100 },
-  { label: '> 100 tấn', min: 100, max: Infinity },
+  { label: 'Trên 100 tấn', min: 100, max: Infinity },
 ]
 
 // --- Rental process ---
@@ -305,7 +305,7 @@ export const seo = {
 
 // --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
 
-export const heroImage = photo('xe-cau-1')
+export const heroImage = photo('hero-wide')
 export const aboutImage = photo('cong-trinh-2')
 export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
 
