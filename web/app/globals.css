@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-brand-red: var(--brand-red);
+  --color-brand-navy: var(--brand-navy);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-body), Arial, 'Helvetica Neue', sans-serif;
+  --font-heading: var(--font-heading), Arial, 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  /* Brand palette sampled directly from asset/logo.jpg */
+  --brand-navy: #13459c;
+  --brand-red: #ed1925;
+
+  --background: #ffffff;
+  --foreground: #10182b;
+  --card: #ffffff;
+  --card-foreground: #10182b;
+  --primary: var(--brand-navy);
+  --primary-foreground: #ffffff;
+  --secondary: #eef2f7;
+  --secondary-foreground: var(--brand-navy);
+  --muted: #f4f5f7;
+  --muted-foreground: #5b6472;
+  /* Accent is a deepened brand red so white CTA text clears 4.5:1 contrast. */
+  --accent: #d6151f;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e2e6ec;
+  --input: #d7dce3;
+  --ring: var(--brand-navy);
+  --radius: 0.15rem;
+}
+
+* {
+  @apply border-border;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-background text-foreground;
+  font-family: var(--font-body), Arial, 'Helvetica Neue', sans-serif;
+}
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+button,
+a,
+input,
+select,
+textarea {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+  font-family: var(--font-heading), Arial, 'Helvetica Neue', sans-serif;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
