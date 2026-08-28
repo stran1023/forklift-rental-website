@@ -33,6 +33,17 @@ Before implementing a milestone:
 
 Do not rewrite working code unnecessarily.
 
+## Git workflow
+
+- `master` is the production branch. **Never commit directly to `master`.**
+- `develop` is the integration branch. All work happens on a task branch created from `develop`.
+- Branch naming: `feature/<short-description>`, `fix/<short-description>`, `chore/<short-description>` (maintenance/config/refactor/deps/docs) — lowercase kebab-case.
+- Before starting a task: check the current branch/working tree, ensure `develop` exists, branch from it.
+- Every completed task must be committed: review `git diff`, run typecheck/build, stage only the relevant files, commit with a conventional prefix (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `style:`, `test:`).
+- Keep commits focused — do not combine unrelated tasks into one branch/commit, and do not sweep in pre-existing uncommitted changes that belong to a different task.
+- Do not push unless explicitly asked; when asked, push the task branch (`git push -u origin <branch-name>`), never `master`.
+- Task branches merge into `develop` after review; `develop` merges into `master` after sufficient testing.
+
 ## Definition of done
 
 A feature is not complete merely because it renders.
