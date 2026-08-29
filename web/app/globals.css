@@ -56,7 +56,6 @@
   @apply border-border;
 }
 html {
-  scroll-behavior: smooth;
   /* Bumps every rem-based Tailwind text/spacing size site-wide (base 16px -> 18px, +12.5%). */
   font-size: 18px;
 }
