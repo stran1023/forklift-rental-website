@@ -13,7 +13,7 @@ export function SectionHeading({
   return (
     <div className="mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
       <div>
-        <span className="text-xs font-bold tracking-[0.2em] text-accent uppercase">{eyebrow}</span>
+        <span className="text-xl font-bold tracking-[0.2em] text-accent uppercase">{eyebrow}</span>
         <h2 className="mt-2 text-3xl font-bold tracking-tight text-primary md:text-5xl">{title}</h2>
       </div>
       {link && (

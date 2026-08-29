@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         </div>
 
         <div>
-          <span className="text-xs font-bold tracking-[0.2em] text-accent uppercase">{item.category}</span>
+          <span className="text-xl font-bold tracking-[0.2em] text-accent uppercase">{item.category}</span>
           <h1 className="mt-2 text-3xl font-bold text-primary md:text-4xl">{item.title}</h1>
 
           {item.capacityTon !== null && (
