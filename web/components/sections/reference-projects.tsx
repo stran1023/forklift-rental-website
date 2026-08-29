@@ -1,11 +1,14 @@
+import Image from 'next/image'
 import { Factory, Wind } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { referenceProjects } from '@/data/site'
+import { realProjectPhotos, referenceProjects } from '@/data/site'
 
 const sectors = [
   { key: 'Dầu khí' as const, icon: Factory },
   { key: 'Điện gió' as const, icon: Wind },
 ]
+
+const galleryPhotos = [realProjectPhotos[2], realProjectPhotos[4], realProjectPhotos[5], realProjectPhotos[6]]
 
 export function ReferenceProjects() {
   return (
@@ -15,11 +18,12 @@ export function ReferenceProjects() {
           eyebrow="Công trình đã tham gia"
           title="Năng lực qua các công trình trọng điểm"
           link={{ href: '/du-an', label: 'Xem chi tiết' }}
+          tone="dark"
         />
         <div className="grid gap-8 md:grid-cols-2">
           {sectors.map(({ key, icon: Icon }) => (
             <div key={key} className="border border-white/15 p-6">
-              <div className="flex items-center gap-3 text-[var(--brand-red)]">
+              <div className="flex items-center gap-3 text-white">
                 <Icon size={22} aria-hidden="true" />
                 <h3 className="text-sm font-bold tracking-wider uppercase">{key}</h3>
               </div>
@@ -34,6 +38,17 @@ export function ReferenceProjects() {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <p className="mb-4 text-xs font-bold tracking-wider text-white/60 uppercase">Hình ảnh công trình thực tế</p>
+          <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {galleryPhotos.map((src) => (
+              <div key={src} className="relative aspect-[4/3] overflow-hidden bg-white/5">
+                <Image src={src} alt="" aria-hidden="true" fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

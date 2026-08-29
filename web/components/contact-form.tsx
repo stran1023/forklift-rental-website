@@ -8,7 +8,7 @@ type Errors = Partial<Record<'name' | 'phone' | 'message', string>>
 
 const phonePattern = /^(0|\+84)\d{9,10}$/
 
-export function ContactForm() {
+export function ContactForm({ defaultService }: { defaultService?: string }) {
   const [sent, setSent] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [errors, setErrors] = useState<Errors>({})
@@ -97,19 +97,25 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Email" name="email" type="email" autoComplete="email" />
+        <Field label="Tên công ty" name="company" autoComplete="organization" />
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2 text-sm font-semibold text-foreground">
-          Dịch vụ cần thuê
-          <select name="service" className="h-12 border border-input bg-background px-3 font-normal" defaultValue="">
-            <option value="">Chọn dịch vụ</option>
+          Thiết bị / dịch vụ cần thuê
+          <select name="service" className="h-12 border border-input bg-background px-3 font-normal" defaultValue={defaultService ?? ''}>
+            <option value="">Chọn thiết bị / dịch vụ</option>
+            {defaultService && !serviceOptions.includes(defaultService) && <option value={defaultService}>{defaultService}</option>}
             {serviceOptions.map((title) => (
               <option key={title}>{title}</option>
             ))}
             <option value="Khác">Khác</option>
           </select>
         </label>
+        <Field label="Thời gian dự kiến" name="duration" placeholder="VD: 2 ngày, 1 tuần..." />
       </div>
 
-      <Field label="Địa điểm công trình" name="location" />
+      <Field label="Khu vực công trình" name="location" />
 
       <label className="grid gap-2 text-sm font-semibold text-foreground">
         Nội dung yêu cầu <span className="text-destructive">*</span>
@@ -148,6 +154,7 @@ function Field({
   required,
   type = 'text',
   autoComplete,
+  placeholder,
   error,
   ref,
 }: {
@@ -156,6 +163,7 @@ function Field({
   required?: boolean
   type?: string
   autoComplete?: string
+  placeholder?: string
   error?: string
   ref?: React.Ref<HTMLInputElement>
 }) {
@@ -167,6 +175,7 @@ function Field({
         name={name}
         type={type}
         autoComplete={autoComplete}
+        placeholder={placeholder}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}
         className="h-12 border border-input bg-background px-3 font-normal"

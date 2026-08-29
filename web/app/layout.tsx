@@ -1,11 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
-import { Inter, Oswald } from 'next/font/google'
+import { Barlow_Condensed, Inter } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { seo, siteUrl } from '@/data/site'
 
 const body = Inter({ subsets: ['latin', 'vietnamese'], variable: '--font-body' })
-const heading = Oswald({ subsets: ['latin', 'vietnamese'], variable: '--font-heading', weight: ['500', '600', '700'] })
+const heading = Barlow_Condensed({ subsets: ['latin', 'vietnamese'], variable: '--font-heading', weight: ['500', '600', '700', '800', '900'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: { title: seo.title, description: seo.description, type: 'website', locale: 'vi_VN' },
 }
 
-export const viewport: Viewport = { colorScheme: 'light', themeColor: '#13459c', userScalable: true }
+export const viewport: Viewport = { colorScheme: 'light', themeColor: '#0d47a1', userScalable: true }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

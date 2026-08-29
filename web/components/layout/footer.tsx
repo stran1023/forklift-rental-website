@@ -16,7 +16,7 @@ export function Footer() {
         </div>
 
         <nav aria-label="Liên kết chân trang">
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--brand-red)]">Điều hướng</h2>
+          <h2 className="mb-4 text-base font-bold uppercase tracking-wider text-white">Điều hướng</h2>
           <ul className="space-y-1">
             {nav
               .filter((item) => item.href !== '/')
@@ -31,7 +31,7 @@ export function Footer() {
         </nav>
 
         <div>
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-[var(--brand-red)]">Liên hệ</h2>
+          <h2 className="mb-4 text-base font-bold uppercase tracking-wider text-white">Liên hệ</h2>
           <ul className="space-y-3 text-sm leading-6 text-white/70">
             <li className="flex gap-3">
               <Phone size={18} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
