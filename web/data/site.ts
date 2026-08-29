@@ -50,6 +50,12 @@ export type ReferenceProject = {
   sector: 'Dầu khí' | 'Điện gió'
 }
 
+export type Testimonial = {
+  quote: string
+  author: string
+  role?: string
+}
+
 export const company = {
   legalName: 'Công Ty TNHH Dịch Vụ Xây Lắp Miền Đông',
   brandName: 'Xây Lắp Miền Đông',
@@ -283,6 +289,14 @@ export const referenceProjects: ReferenceProject[] = [
   { name: 'Trung Hải', sector: 'Điện gió' },
   { name: 'Ấn Độ', sector: 'Điện gió' },
 ]
+
+// --- Customer testimonials ---
+// Intentionally empty: no real customer testimonial has been provided yet, and
+// content guidelines forbid fabricating one. Add real { quote, author, role }
+// entries here as they come in — the Testimonials section renders them
+// automatically and falls back to an honest empty state while this is empty.
+
+export const testimonials: Testimonial[] = []
 
 // --- Trust metrics ---
 // Measurable, verifiable facts only (no invented years-of-experience/customer counts).
