@@ -1,7 +1,17 @@
-// Verified content only — sourced from docs/Thong_Tin_Website_Eastern_SC.md and asset/logo.jpg.
+// Verified content only — sourced from docs/Thong_Tin_Website_Eastern_SC.md, asset/logo.jpg,
+// and real company photos in asset/{can_cau,xe_nang,du_an_thuc_te}/ (copied into public/photos/).
 // Do not add facts, claims, prices, or contact details that are not verified in that document.
 
 const img = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=85`
+/** Real company photo (not stock) — see public/photos/. */
+const photo = (name: string) => `/photos/${name}.jpg`
+
+/** Real xe cẩu (crawler crane) photos from company job sites. */
+export const realCraneImages = Array.from({ length: 8 }, (_, i) => photo(`xe-cau-${i + 1}`))
+/** Real xe nâng (forklift) photos, company-branded units. */
+export const realForkliftImages = Array.from({ length: 4 }, (_, i) => photo(`xe-nang-${i + 1}`))
+/** Real job-site photos (not tied to a specific named project — see referenceProjects). */
+export const realProjectPhotos = Array.from({ length: 8 }, (_, i) => photo(`cong-trinh-${i + 1}`))
 
 export type Service = {
   slug: string
@@ -20,9 +30,33 @@ export type EquipmentCategory = {
   hasSpecs: boolean
 }
 
+export type EquipmentItem = {
+  slug: string
+  title: string
+  category: string
+  /** null when no verified capacity figure exists for this listing */
+  capacityTon: number | null
+  image: string
+  short: string
+  description: string
+  applications: string
+  hasSpecs: boolean
+}
+
+export type CapacityBucket = { label: string; min: number; max: number }
+
 export type ReferenceProject = {
   name: string
   sector: 'Dầu khí' | 'Điện gió'
+}
+
+export type Testimonial = {
+  quote: string
+  author: string
+  role?: string
+  /** 1–5 */
+  rating: number
+  recommended: boolean
 }
 
 export const company = {
@@ -42,8 +76,8 @@ export const phoneHref = `tel:${company.phoneDigits}`
 export const nav = [
   { label: 'Trang chủ', href: '/' },
   { label: 'Giới thiệu', href: '/gioi-thieu' },
+  { label: 'Thiết bị', href: '/thiet-bi' },
   { label: 'Dịch vụ', href: '/dich-vu' },
-  { label: 'Xe & Thiết bị', href: '/thiet-bi' },
   { label: 'Công trình', href: '/du-an' },
   { label: 'Liên hệ', href: '/lien-he' },
 ]
@@ -57,7 +91,7 @@ export const services: Service[] = [
     short: 'Xe nâng phục vụ kho bãi, nhà xưởng và công trình.',
     description:
       'Cho thuê xe nâng phù hợp với nhu cầu kho bãi, nhà xưởng và công trình. Liên hệ để được tư vấn loại xe và tải trọng phù hợp với công việc thực tế.',
-    image: img('photo-1714627798569-b3e36d409c4b'),
+    image: photo('xe-nang-2'),
   },
   {
     slug: 'cho-thue-xe-cau',
@@ -65,7 +99,7 @@ export const services: Service[] = [
     short: 'Xe cẩu nhiều tải trọng, phục vụ công trình dầu khí, điện gió và xây dựng.',
     description:
       'Cho thuê xe cẩu với dải tải trọng đa dạng, đã tham gia thi công các công trình dầu khí và điện gió trọng điểm. Liên hệ để được tư vấn thiết bị và phương án cẩu lắp phù hợp.',
-    image: img('photo-1553048686-e3d0396506b9'),
+    image: photo('xe-cau-1'),
   },
   {
     slug: 'cho-thue-xe-nang-nguoi',
@@ -81,7 +115,7 @@ export const services: Service[] = [
     short: 'Các thiết bị nâng hạ bổ sung theo yêu cầu công việc.',
     description:
       'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
-    image: img('photo-1586458995526-09ce6839babe'),
+    image: img('photo-1642721035664-ce3f84b33fde'),
   },
   {
     slug: 'cho-thue-kem-tai-xe',
@@ -89,7 +123,7 @@ export const services: Service[] = [
     short: 'Có đội ngũ tài xế và vận hành viên đi kèm thiết bị.',
     description:
       'Thiết bị cho thuê có thể đi kèm tài xế hoặc vận hành viên, hỗ trợ triển khai công việc an toàn và đúng phương án. Liên hệ để trao đổi nhu cầu nhân sự vận hành.',
-    image: img('photo-1765435149256-56f3ea3db68f'),
+    image: photo('cong-trinh-8'),
   },
   {
     slug: 'van-chuyen-giao-thiet-bi',
@@ -135,14 +169,14 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'xe-cau',
     title: 'Xe cẩu',
     short: `Tải trọng từ ${craneCapacitiesTon[0]} tấn đến ${craneCapacitiesTon[craneCapacitiesTon.length - 1]} tấn.`,
-    image: img('photo-1553048686-e3d0396506b9'),
+    image: photo('xe-cau-1'),
     hasSpecs: true,
   },
   {
     slug: 'xe-nang',
     title: 'Xe nâng',
     short: 'Phục vụ kho bãi, nhà xưởng và công trình.',
-    image: img('photo-1714627798569-b3e36d409c4b'),
+    image: photo('xe-nang-2'),
     hasSpecs: false,
   },
   {
@@ -156,12 +190,90 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'thiet-bi-nang-ha-khac',
     title: 'Thiết bị nâng hạ khác',
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
-    image: img('photo-1586458995526-09ce6839babe'),
+    image: img('photo-1642721035664-ce3f84b33fde'),
     hasSpecs: false,
   },
 ]
 
 export const getEquipmentCategory = (slug: string) => equipmentCategories.find((e) => e.slug === slug)
+
+/**
+ * Flat, filterable equipment catalog. Crane listings are one entry per verified
+ * capacity class (real data). The other three categories have no verified
+ * per-unit specs yet, so each is a single honest "contact for specs" listing —
+ * see docs/Thong_Tin_Website_Eastern_SC.md, no fabricated models/specs.
+ */
+export const equipmentItems: EquipmentItem[] = [
+  ...craneCapacitiesTon.map(
+    (ton, i): EquipmentItem => ({
+      slug: `xe-cau-${ton}-tan`,
+      title: `Xe cẩu ${ton} tấn`,
+      category: 'Xe cẩu',
+      capacityTon: Number(ton),
+      image: realCraneImages[i % realCraneImages.length],
+      short: `Sức nâng ${ton} tấn, có kèm tài xế / vận hành viên.`,
+      description: `Xe cẩu tải trọng ${ton} tấn, xuất xứ ${craneOrigins.join(', ')}, đời xe ${craneModelYears.join(', ')}. Có kèm tài xế / vận hành viên.`,
+      applications: 'Phù hợp cho công trình dầu khí, điện gió và xây dựng công nghiệp.',
+      hasSpecs: true,
+    }),
+  ),
+  {
+    slug: 'xe-nang',
+    title: 'Xe nâng',
+    category: 'Xe nâng',
+    capacityTon: null,
+    image: photo('xe-nang-2'),
+    short: 'Phục vụ kho bãi, nhà xưởng và công trình.',
+    description: 'Cho thuê xe nâng phù hợp với nhu cầu kho bãi, nhà xưởng và công trình. Liên hệ để được tư vấn loại xe và tải trọng phù hợp.',
+    applications: 'Phù hợp cho kho bãi, nhà xưởng và công trình.',
+    hasSpecs: false,
+  },
+  {
+    slug: 'xe-nang-nguoi',
+    title: 'Xe nâng người',
+    category: 'Xe nâng người',
+    capacityTon: null,
+    image: img('photo-1786057424991-dfb714428b8e'),
+    short: 'Phục vụ thi công và bảo trì trên cao.',
+    description: 'Cho thuê xe nâng người phục vụ các hạng mục thi công, lắp đặt và bảo trì trên cao. Liên hệ để trao đổi độ cao nâng và điều kiện mặt bằng.',
+    applications: 'Phù hợp cho thi công, lắp đặt và bảo trì trên cao.',
+    hasSpecs: false,
+  },
+  {
+    slug: 'thiet-bi-nang-ha-khac',
+    title: 'Thiết bị nâng hạ khác',
+    category: 'Thiết bị nâng hạ khác',
+    capacityTon: null,
+    image: img('photo-1642721035664-ce3f84b33fde'),
+    short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
+    description: 'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
+    applications: 'Theo yêu cầu cụ thể của từng công trình.',
+    hasSpecs: false,
+  },
+]
+
+export const getEquipmentItem = (slug: string) => equipmentItems.find((e) => e.slug === slug)
+
+export const equipmentCategoryFilters = equipmentCategories.map((c) => c.title)
+
+/** Capacity filter only affects "Xe cẩu" listings — the only category with a verified tonnage figure. */
+export const capacityBuckets: CapacityBucket[] = [
+  { label: 'Dưới 10 tấn', min: 0, max: 10 },
+  { label: '10 – 50 tấn', min: 10, max: 50 },
+  { label: '50 – 100 tấn', min: 50, max: 100 },
+  { label: 'Trên 100 tấn', min: 100, max: Infinity },
+]
+
+// --- Rental process ---
+// Generic, verifiable workflow description (not a specific company claim/statistic).
+
+export const rentalProcessSteps = [
+  { title: 'Gửi yêu cầu', text: 'Gửi thông tin qua form hoặc gọi trực tiếp hotline.' },
+  { title: 'Tư vấn thiết bị', text: 'Trao đổi tải trọng, thời gian và điều kiện công trình.' },
+  { title: 'Nhận báo giá', text: 'Nhận phương án và báo giá phù hợp với nhu cầu.' },
+  { title: 'Điều phối thiết bị', text: 'Thống nhất lịch trình và điều phối thiết bị đến công trình.' },
+  { title: 'Bàn giao & hỗ trợ', text: 'Bàn giao thiết bị kèm tài xế / vận hành viên khi cần.' },
+]
 
 // --- Reference projects (Mục 2 "Định vị thương hiệu & điểm mạnh" của tài liệu gốc) ---
 // Đây là danh sách công trình công ty đã tham gia thi công, không phải hồ sơ dự án đầy đủ
@@ -181,6 +293,56 @@ export const referenceProjects: ReferenceProject[] = [
   { name: 'Ấn Độ', sector: 'Điện gió' },
 ]
 
+// --- Customer testimonials ---
+// ⚠️ MOCK / PLACEHOLDER DATA — requested explicitly to preview the design
+// (avatar, star rating, recommend badge). Names, roles, and quotes below are
+// illustrative only, NOT real customers. Replace every entry with a real
+// { quote, author, role, rating, recommended } before this site goes live —
+// publishing these as genuine reviews would violate this project's own
+// "never invent testimonials" content rule.
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      'Xe cẩu đến đúng hẹn, tài xế thao tác cẩn thận. Trao đổi tải trọng và phương án trước khi triển khai rất rõ ràng.',
+    author: 'Nguyễn Văn Hùng',
+    role: 'Chỉ huy công trình',
+    rating: 5,
+    recommended: true,
+  },
+  {
+    quote: 'Thuê xe nâng ngắn hạn cho đợt nhập hàng cao điểm, thủ tục nhanh và thiết bị hoạt động ổn định suốt thời gian thuê.',
+    author: 'Trần Thị Mai',
+    role: 'Quản lý kho vận',
+    rating: 5,
+    recommended: true,
+  },
+  {
+    quote: 'Đội ngũ tư vấn đúng loại thiết bị cho mặt bằng chật hẹp của công trình. Vận chuyển và lắp đặt đúng lịch đã thống nhất.',
+    author: 'Lê Minh Tuấn',
+    role: 'Chủ thầu xây dựng',
+    rating: 4,
+    recommended: true,
+  },
+  {
+    quote: 'Đã hợp tác nhiều đợt cho các hạng mục nâng hạ tại nhà máy. Phản hồi báo giá nhanh, thiết bị đáp ứng đúng tải trọng yêu cầu.',
+    author: 'Phạm Thị Hương',
+    role: 'Quản lý nhà máy',
+    rating: 5,
+    recommended: true,
+  },
+]
+
+// --- Trust metrics ---
+// Measurable, verifiable facts only (no invented years-of-experience/customer counts).
+
+export const trustMetrics = [
+  { value: company.foundedDate.split('/').at(-1) ?? '', label: 'Năm thành lập' },
+  { value: `${craneCapacitiesTon.at(-1)} tấn`, label: 'Sức nâng xe cẩu tối đa' },
+  { value: `${referenceProjects.length}`, label: 'Công trình đã tham gia' },
+  { value: 'Có', label: 'Tài xế / vận hành viên đi kèm' },
+]
+
 // --- SEO / site config ---
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
@@ -192,9 +354,9 @@ export const seo = {
 
 // --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
 
-export const heroImage = img('photo-1553048686-e3d0396506b9')
-export const aboutImage = img('photo-1726731782158-fcf6822b6ca4')
+export const heroImage = photo('hero-wide')
+export const aboutImage = photo('cong-trinh-2')
 export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
 
-export const site = { company, services, equipmentCategories, referenceProjects }
+export const site = { company, services, equipmentCategories, equipmentItems, referenceProjects }
 export default site

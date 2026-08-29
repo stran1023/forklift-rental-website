@@ -10,7 +10,7 @@ export function AboutPreview() {
         <Image src={aboutImage} alt="" aria-hidden="true" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
       </div>
       <div>
-        <span className="text-xs font-bold tracking-[0.2em] text-accent uppercase">Về chúng tôi</span>
+        <span className="text-xl font-bold tracking-[0.2em] text-accent uppercase">Về chúng tôi</span>
         <h2 className="mt-3 text-3xl font-bold text-primary md:text-5xl">{company.brandName}</h2>
         <p className="mt-5 text-base leading-8 text-muted-foreground">
           Thành lập ngày {company.foundedDate}, {company.legalName} cung cấp dịch vụ cho thuê xe cẩu, xe nâng và thiết bị nâng hạ, đã

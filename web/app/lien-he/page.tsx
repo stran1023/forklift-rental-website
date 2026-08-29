@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   description: `Liên hệ ${company.brandName} để được tư vấn thuê xe cẩu, xe nâng và thiết bị nâng hạ.`,
 }
 
-export default function Page() {
+export default async function Page({ searchParams }: { searchParams: Promise<{ service?: string }> }) {
+  const { service } = await searchParams
   return (
     <Shell>
       <PageHero title="Liên hệ" text="Gửi nhu cầu của bạn để được tư vấn thiết bị và phương án phù hợp." />
@@ -29,7 +30,7 @@ export default function Page() {
           </div>
         </div>
         <div className="border border-border bg-card p-6 md:p-8">
-          <ContactForm />
+          <ContactForm defaultService={service} />
         </div>
       </div>
     </Shell>
