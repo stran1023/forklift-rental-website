@@ -54,6 +54,9 @@ export type Testimonial = {
   quote: string
   author: string
   role?: string
+  /** 1–5 */
+  rating: number
+  recommended: boolean
 }
 
 export const company = {
@@ -291,12 +294,44 @@ export const referenceProjects: ReferenceProject[] = [
 ]
 
 // --- Customer testimonials ---
-// Intentionally empty: no real customer testimonial has been provided yet, and
-// content guidelines forbid fabricating one. Add real { quote, author, role }
-// entries here as they come in — the Testimonials section renders them
-// automatically and falls back to an honest empty state while this is empty.
+// ⚠️ MOCK / PLACEHOLDER DATA — requested explicitly to preview the design
+// (avatar, star rating, recommend badge). Names, roles, and quotes below are
+// illustrative only, NOT real customers. Replace every entry with a real
+// { quote, author, role, rating, recommended } before this site goes live —
+// publishing these as genuine reviews would violate this project's own
+// "never invent testimonials" content rule.
 
-export const testimonials: Testimonial[] = []
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      'Xe cẩu đến đúng hẹn, tài xế thao tác cẩn thận. Trao đổi tải trọng và phương án trước khi triển khai rất rõ ràng.',
+    author: 'Nguyễn Văn Hùng',
+    role: 'Chỉ huy công trình',
+    rating: 5,
+    recommended: true,
+  },
+  {
+    quote: 'Thuê xe nâng ngắn hạn cho đợt nhập hàng cao điểm, thủ tục nhanh và thiết bị hoạt động ổn định suốt thời gian thuê.',
+    author: 'Trần Thị Mai',
+    role: 'Quản lý kho vận',
+    rating: 5,
+    recommended: true,
+  },
+  {
+    quote: 'Đội ngũ tư vấn đúng loại thiết bị cho mặt bằng chật hẹp của công trình. Vận chuyển và lắp đặt đúng lịch đã thống nhất.',
+    author: 'Lê Minh Tuấn',
+    role: 'Chủ thầu xây dựng',
+    rating: 4,
+    recommended: true,
+  },
+  {
+    quote: 'Đã hợp tác nhiều đợt cho các hạng mục nâng hạ tại nhà máy. Phản hồi báo giá nhanh, thiết bị đáp ứng đúng tải trọng yêu cầu.',
+    author: 'Phạm Thị Hương',
+    role: 'Quản lý nhà máy',
+    rating: 5,
+    recommended: true,
+  },
+]
 
 // --- Trust metrics ---
 // Measurable, verifiable facts only (no invented years-of-experience/customer counts).
