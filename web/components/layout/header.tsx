@@ -34,7 +34,7 @@ export function Header() {
           <Logo variant="light" className="h-12 w-auto sm:h-14" />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Điều hướng chính">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Điều hướng chính">
           {nav.map((item) => {
             const active = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href)
             return (
@@ -43,11 +43,18 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'text-sm font-medium transition-colors hover:text-primary',
-                  active ? 'text-primary' : 'text-muted-foreground',
+                  'group relative py-1 text-lg font-bold transition-colors hover:text-primary',
+                  active ? 'text-primary' : 'text-foreground/70',
                 )}
               >
                 {item.label}
+                <span
+                  className={cn(
+                    'absolute inset-x-0 -bottom-1 h-0.5 origin-center scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100',
+                    active && 'scale-x-100',
+                  )}
+                  aria-hidden="true"
+                />
               </Link>
             )
           })}
@@ -75,11 +82,23 @@ export function Header() {
 
       {open && (
         <nav id="mobile-nav" aria-label="Điều hướng di động" className="border-t border-border bg-background px-5 py-2 lg:hidden">
-          {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="block border-b border-border py-4 text-base font-medium text-foreground">
-              {item.label}
-            </Link>
-          ))}
+          {nav.map((item) => {
+            const active = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href)
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? 'page' : undefined}
+                className={cn(
+                  'flex items-center gap-3 border-b border-border py-4 text-xl font-bold transition-colors',
+                  active ? 'text-primary' : 'text-foreground',
+                )}
+              >
+                <span className={cn('h-2 w-2 shrink-0 rounded-full bg-accent transition-opacity', active ? 'opacity-100' : 'opacity-0')} aria-hidden="true" />
+                {item.label}
+              </Link>
+            )
+          })}
           <a
             href={phoneHref}
             className="mt-4 mb-4 flex h-12 items-center justify-center gap-2 bg-accent text-sm font-bold text-accent-foreground"
