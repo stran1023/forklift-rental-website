@@ -106,7 +106,7 @@ export const services: Service[] = [
     short: 'Các thiết bị nâng hạ bổ sung theo yêu cầu công việc.',
     description:
       'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
-    image: img('photo-1586458995526-09ce6839babe'),
+    image: img('photo-1642721035664-ce3f84b33fde'),
   },
   {
     slug: 'cho-thue-kem-tai-xe',
@@ -181,7 +181,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'thiet-bi-nang-ha-khac',
     title: 'Thiết bị nâng hạ khác',
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
-    image: img('photo-1586458995526-09ce6839babe'),
+    image: img('photo-1642721035664-ce3f84b33fde'),
     hasSpecs: false,
   },
 ]
@@ -235,7 +235,7 @@ export const equipmentItems: EquipmentItem[] = [
     title: 'Thiết bị nâng hạ khác',
     category: 'Thiết bị nâng hạ khác',
     capacityTon: null,
-    image: img('photo-1586458995526-09ce6839babe'),
+    image: img('photo-1642721035664-ce3f84b33fde'),
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
     description: 'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
     applications: 'Theo yêu cầu cụ thể của từng công trình.',

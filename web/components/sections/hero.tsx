@@ -24,7 +24,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-[1440px] gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:py-24">
         <div className="max-w-2xl text-white">
-          <span className="text-xl font-bold tracking-[0.25em] text-[var(--brand-red)] uppercase">
+          <span className="text-xl font-bold tracking-[0.25em] text-white uppercase">
             Cho thuê xe cẩu &amp; thiết bị nâng hạ
           </span>
           <h1 className="mt-5 text-balance text-5xl leading-[1.02] font-bold sm:text-6xl lg:text-7xl">
@@ -59,7 +59,7 @@ export function Hero() {
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-white lg:col-start-1">
           {valuePoints.map((point) => (
             <li key={point} className="flex items-center gap-2 text-sm font-semibold text-white/85">
-              <CheckCircle2 size={16} className="shrink-0 text-[var(--brand-red)]" aria-hidden="true" />
+              <CheckCircle2 size={16} className="shrink-0 text-white" aria-hidden="true" />
               {point}
             </li>
           ))}
