@@ -14,7 +14,7 @@ export function RentalProcess() {
             )}
             <div className="flex items-center gap-3">
               <IconBadge icon={step.icon} tone="navy" size="lg" />
-              <span className="text-2xl font-bold text-border">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-heading text-4xl font-black text-primary">{String(i + 1).padStart(2, '0')}</span>
             </div>
             <h3 className="mt-4 font-bold text-primary">{step.title}</h3>
             <p className="mt-1.5 text-sm leading-6 text-muted-foreground">{step.text}</p>
