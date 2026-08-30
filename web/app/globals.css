@@ -115,3 +115,13 @@ h3 {
     opacity: 1;
   }
 }
+
+/* Shared CTA arrow micro-interaction: nudges right on hover of the nearest
+   `group` ancestor (Link/button). One definition, reused on every "Xem chi
+   tiết" / "Nhận báo giá" style CTA instead of repeating the transform. */
+.cta-arrow {
+  transition: transform 200ms ease-out;
+}
+.group:hover .cta-arrow {
+  transform: translateX(3px);
+}

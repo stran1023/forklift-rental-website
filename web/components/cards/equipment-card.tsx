@@ -32,7 +32,7 @@ export function EquipmentCard({ item }: { item: EquipmentItem }) {
         <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{item.short}</p>
         <div className="mt-4 flex items-center justify-between gap-3">
           <Link href={`/thiet-bi/${item.slug}`} className="flex items-center gap-1.5 text-sm font-bold text-primary hover:text-accent">
-            Xem chi tiết <ArrowRight size={16} aria-hidden="true" />
+            Xem chi tiết <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
           </Link>
           <Link
             href={`/lien-he?service=${encodeURIComponent(item.title)}`}

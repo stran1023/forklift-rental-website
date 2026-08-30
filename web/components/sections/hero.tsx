@@ -28,9 +28,9 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/lien-he"
-              className="flex h-14 items-center gap-2 bg-accent px-7 text-base font-bold text-accent-foreground transition hover:brightness-95"
+              className="group flex h-14 items-center gap-2 bg-accent px-7 text-base font-bold text-accent-foreground transition hover:brightness-95"
             >
-              Nhận báo giá <ArrowRight size={18} aria-hidden="true" />
+              Nhận báo giá <ArrowRight size={18} className="cta-arrow" aria-hidden="true" />
             </Link>
             <a
               href={phoneHref}
