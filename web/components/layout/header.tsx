@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Menu, Phone, X } from 'lucide-react'
+import { Menu, PhoneCall, X } from 'lucide-react'
 import { Logo } from '@/components/logo'
 import { nav, phoneHref, company } from '@/data/site'
 import { cn } from '@/lib/utils'
@@ -62,10 +62,12 @@ export function Header() {
 
         <a
           href={phoneHref}
-          className="hidden items-center gap-2 bg-accent px-5 py-3 text-sm font-bold text-accent-foreground transition hover:brightness-95 lg:flex"
+          title={company.phone}
+          aria-label={`Liên hệ ngay — gọi ${company.phone}`}
+          className="hidden items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm lg:flex"
         >
-          <Phone size={16} aria-hidden="true" />
-          {company.phone}
+          <PhoneCall size={18} aria-hidden="true" />
+          LIÊN HỆ NGAY
         </a>
 
         <button
@@ -101,9 +103,10 @@ export function Header() {
           })}
           <a
             href={phoneHref}
-            className="mt-4 mb-4 flex h-12 items-center justify-center gap-2 bg-accent text-sm font-bold text-accent-foreground"
+            aria-label={`Liên hệ ngay — gọi ${company.phone}`}
+            className="mt-4 mb-4 flex h-14 items-center justify-center gap-2 rounded-full bg-accent text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out active:scale-95 active:shadow-sm"
           >
-            <Phone size={16} aria-hidden="true" /> Gọi {company.phone}
+            <PhoneCall size={18} aria-hidden="true" /> LIÊN HỆ NGAY · {company.phone}
           </a>
         </nav>
       )}
