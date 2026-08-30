@@ -29,7 +29,7 @@ export function ServiceCard({ service }: { service: Service }) {
         <h3 className="text-lg font-bold text-primary md:text-xl">{service.title}</h3>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">{service.short}</p>
         <span className="mt-4 flex items-center gap-2 text-sm font-bold text-accent">
-          Xem chi tiết <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
+          Xem chi tiết <ArrowRight size={13} className="cta-arrow" aria-hidden="true" />
         </span>
       </div>
     </Link>

@@ -16,7 +16,7 @@ export function HeroSearch() {
       <div className="mt-5 grid gap-4">
         <label className="grid gap-1.5 text-sm font-semibold text-foreground">
           <span className="flex items-center gap-1.5">
-            <Truck size={15} className="text-accent" aria-hidden="true" />
+            <Truck size={12} className="text-accent" aria-hidden="true" />
             Loại thiết bị
           </span>
           <select
@@ -35,7 +35,7 @@ export function HeroSearch() {
 
         <label className="grid gap-1.5 text-sm font-semibold text-foreground">
           <span className="flex items-center gap-1.5">
-            <Weight size={15} className="text-accent" aria-hidden="true" />
+            <Weight size={12} className="text-accent" aria-hidden="true" />
             Tải trọng (tấn)
           </span>
           <select
@@ -57,7 +57,7 @@ export function HeroSearch() {
           className="group flex h-12 items-center justify-center gap-2 bg-accent text-sm font-bold text-accent-foreground transition hover:brightness-95"
         >
           Tìm kiếm ngay
-          <Search size={16} className="cta-arrow" aria-hidden="true" />
+          <Search size={13} className="cta-arrow" aria-hidden="true" />
         </button>
       </div>
     </form>

@@ -24,7 +24,7 @@ export function ReferenceProjects() {
           {sectors.map(({ key, icon: Icon }) => (
             <div key={key} className="border border-white/15 p-6">
               <div className="flex items-center gap-3 text-white">
-                <Icon size={22} aria-hidden="true" />
+                <Icon size={18} aria-hidden="true" />
                 <h3 className="text-sm font-bold tracking-wider uppercase">{key}</h3>
               </div>
               <ul className="mt-4 flex flex-wrap gap-2">

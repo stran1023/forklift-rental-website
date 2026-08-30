@@ -2,7 +2,7 @@ import type { LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const sizeClasses = { sm: 'size-10', lg: 'size-14' } as const
-const iconSizes = { sm: 18, lg: 26 } as const
+const iconSizes = { sm: 14, lg: 21 } as const
 const toneClasses = {
   navy: 'bg-[var(--brand-navy)] text-white',
   red: 'bg-accent text-accent-foreground',

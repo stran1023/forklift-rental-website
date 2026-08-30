@@ -61,7 +61,7 @@ export function EquipmentCatalog({
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <label className="relative block">
             <span className="sr-only">Tìm thiết bị</span>
-            <Search size={18} className="absolute top-1/2 left-3 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+            <Search size={14} className="absolute top-1/2 left-3 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
             <input
               type="search"
               value={query}
@@ -122,7 +122,7 @@ export function EquipmentCatalog({
               onClick={clearFilters}
               className="mt-6 flex items-center gap-2 text-sm font-bold text-accent hover:underline"
             >
-              <X size={15} aria-hidden="true" /> Xóa bộ lọc
+              <X size={12} aria-hidden="true" /> Xóa bộ lọc
             </button>
           )}
         </aside>
