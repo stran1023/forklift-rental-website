@@ -1,28 +1,17 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Phone } from 'lucide-react'
-import { company, heroImage, phoneHref } from '@/data/site'
+import { company, phoneHref } from '@/data/site'
 import { HeroSearch } from '@/components/sections/hero-search'
+import { HeroSlider } from '@/components/sections/hero-slider'
 
 const valuePoints = ['6 – 1.250 tấn', 'Có tài xế / vận hành viên', 'Phục vụ công trình công nghiệp', 'Vận chuyển & giao thiết bị']
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[var(--brand-navy)]">
-      <Image
-        src={heroImage}
-        alt=""
-        aria-hidden="true"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition: 'center 35%' }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-navy)] via-[var(--brand-navy)]/70 to-[var(--brand-navy)]/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/70 via-transparent to-transparent" />
+      <HeroSlider />
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-[1440px] gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:py-24">
         <div className="max-w-2xl text-white">
           <span className="text-xl font-bold tracking-[0.25em] text-white uppercase">
             Cho thuê xe cẩu &amp; thiết bị nâng hạ

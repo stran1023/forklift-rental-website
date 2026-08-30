@@ -354,7 +354,8 @@ export const seo = {
 
 // --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
 
-export const heroImage = photo('hero-wide')
+/** Background slider on the hero section — real company photos, cropped for a wide band. */
+export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
 export const aboutImage = photo('cong-trinh-2')
 export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
 
