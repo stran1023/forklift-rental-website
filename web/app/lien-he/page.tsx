@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { MapPin, Phone } from 'lucide-react'
+import { Map, MapPin, Phone } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
 import { PageHero } from '@/components/ui/page-hero'
 import { ContactForm } from '@/components/contact-form'
@@ -26,7 +26,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ s
             <p className="flex items-start gap-3 text-foreground">
               <MapPin className="mt-0.5 shrink-0 text-accent" size={20} aria-hidden="true" /> {company.address}
             </p>
-            <p className="text-muted-foreground">Khu vực phục vụ: {company.serviceAreas.join(', ')}</p>
+            <p className="flex items-start gap-3 text-muted-foreground">
+              <Map className="mt-0.5 shrink-0 text-accent" size={20} aria-hidden="true" /> Khu vực phục vụ:{' '}
+              {company.serviceAreas.join(', ')}
+            </p>
           </div>
         </div>
         <div className="border border-border bg-card p-6 md:p-8">

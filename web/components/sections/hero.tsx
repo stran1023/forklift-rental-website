@@ -1,30 +1,27 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Phone } from 'lucide-react'
-import { company, heroImage, phoneHref } from '@/data/site'
+import { ArrowRight, Building2, Construction, FileText, Gauge, Truck, UserCheck } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
+import { company } from '@/data/site'
 import { HeroSearch } from '@/components/sections/hero-search'
+import { HeroSlider } from '@/components/sections/hero-slider'
+import { IconBadge } from '@/components/ui/icon-badge'
 
-const valuePoints = ['6 – 1.250 tấn', 'Có tài xế / vận hành viên', 'Phục vụ công trình công nghiệp', 'Vận chuyển & giao thiết bị']
+const trustItems: { icon: LucideIcon; label: string }[] = [
+  { icon: Gauge, label: '6 – 1.250 tấn' },
+  { icon: UserCheck, label: 'Có tài xế / vận hành viên' },
+  { icon: Construction, label: 'Phục vụ công trình công nghiệp' },
+  { icon: Truck, label: 'Vận chuyển & giao thiết bị' },
+]
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[var(--brand-navy)]">
-      <Image
-        src={heroImage}
-        alt=""
-        aria-hidden="true"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition: 'center 35%' }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-navy)] via-[var(--brand-navy)]/70 to-[var(--brand-navy)]/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-navy)]/70 via-transparent to-transparent" />
+      <HeroSlider />
 
-      <div className="relative mx-auto grid max-w-[1440px] gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-[1440px] gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:py-24">
         <div className="max-w-2xl text-white">
-          <span className="text-xl font-bold tracking-[0.25em] text-white uppercase">
+          <span className="inline-flex items-center gap-2 border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-bold tracking-[0.2em] text-white uppercase backdrop-blur-sm">
+            <Building2 size={14} className="text-[var(--brand-red)]" aria-hidden="true" />
             Cho thuê xe cẩu &amp; thiết bị nâng hạ
           </span>
           <h1 className="mt-5 text-balance text-5xl leading-[1.02] font-bold sm:text-6xl lg:text-7xl">
@@ -39,31 +36,26 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/lien-he"
-              className="flex h-14 items-center gap-2 bg-accent px-7 text-base font-bold text-accent-foreground transition hover:brightness-95"
+              className="group flex h-14 items-center gap-2 bg-accent px-7 text-base font-bold text-accent-foreground shadow-lg shadow-black/20 transition hover:brightness-95"
             >
-              Nhận báo giá <ArrowRight size={18} aria-hidden="true" />
+              <FileText size={18} aria-hidden="true" />
+              Nhận báo giá <ArrowRight size={18} className="cta-arrow" aria-hidden="true" />
             </Link>
-            <a
-              href={phoneHref}
-              className="flex h-14 items-center gap-2 border border-white/40 px-7 text-base font-bold text-white transition hover:bg-white/10"
-            >
-              <Phone size={18} aria-hidden="true" /> Gọi ngay {company.phone}
-            </a>
           </div>
         </div>
 
-        <div className="flex justify-center lg:row-span-2 lg:justify-end">
-          <HeroSearch />
-        </div>
-
-        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-white lg:col-start-1">
-          {valuePoints.map((point) => (
-            <li key={point} className="flex items-center gap-2 text-sm font-semibold text-white/85">
-              <CheckCircle2 size={16} className="shrink-0 text-white" aria-hidden="true" />
-              {point}
+        <ul className="flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-6 lg:col-start-1">
+          {trustItems.map((item) => (
+            <li key={item.label} className="flex items-center gap-2.5 text-sm font-semibold text-white/90">
+              <IconBadge icon={item.icon} tone="white-on-dark" size="sm" className="size-8" />
+              {item.label}
             </li>
           ))}
         </ul>
+
+        <div className="flex justify-center lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:justify-end">
+          <HeroSearch />
+        </div>
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { IconBadge } from '@/components/ui/icon-badge'
 import { capacityBuckets, type EquipmentCategory } from '@/data/site'
 
 export function EquipmentCategoryCard({ category }: { category: EquipmentCategory }) {
@@ -18,6 +19,11 @@ export function EquipmentCategoryCard({ category }: { category: EquipmentCategor
           sizes="(max-width:768px) 100vw, 25vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
+        <IconBadge
+          icon={category.icon}
+          tone="navy"
+          className="absolute bottom-3 left-3 shadow-md transition-transform duration-200 group-hover:scale-110"
+        />
       </div>
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-xl font-bold text-primary">{category.title}</h3>
@@ -34,7 +40,7 @@ export function EquipmentCategoryCard({ category }: { category: EquipmentCategor
         )}
 
         <span className="mt-4 flex items-center gap-2 text-sm font-bold text-accent">
-          Xem thiết bị <ArrowRight size={16} aria-hidden="true" />
+          Xem thiết bị <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
         </span>
       </div>
     </Link>
