@@ -8,6 +8,7 @@ The Next.js app lives in [`web/`](./web) — this root only holds the engineerin
 
 - Next.js 16 (App Router) + TypeScript, in `web/`
 - Tailwind CSS v4 + `@base-ui/react` + `class-variance-authority`
+- `lucide-react` for the site-wide icon system
 - pnpm (see `pnpm-workspace.yaml`)
 - Planned, not yet implemented: Supabase PostgreSQL + Storage + Auth, Drizzle ORM, React Hook Form + Zod, Resend for lead notifications (see `docs/02-architecture.md` and `feature_list.json` — feat-002 onward)
 - Vercel deployment
