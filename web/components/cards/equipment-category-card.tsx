@@ -32,7 +32,7 @@ export function EquipmentCategoryCard({ category }: { category: EquipmentCategor
         {category.hasSpecs && (
           <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Nhóm tải trọng">
             {capacityBuckets.map((b) => (
-              <li key={b.label} className="border border-border bg-secondary px-2 py-1 text-[11px] font-bold text-primary">
+              <li key={b.label} className="border border-border bg-secondary px-2 py-1 text-[9px] font-bold text-primary">
                 {b.label}
               </li>
             ))}
@@ -40,7 +40,7 @@ export function EquipmentCategoryCard({ category }: { category: EquipmentCategor
         )}
 
         <span className="mt-4 flex items-center gap-2 text-sm font-bold text-accent">
-          Xem thiết bị <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
+          Xem thiết bị <ArrowRight size={13} className="cta-arrow" aria-hidden="true" />
         </span>
       </div>
     </Link>

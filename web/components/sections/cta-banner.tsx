@@ -15,7 +15,7 @@ export function CtaBanner() {
           href="/lien-he"
           className="group mt-8 inline-flex items-center gap-2 bg-accent px-6 py-4 font-bold text-accent-foreground transition hover:brightness-95"
         >
-          Nhận tư vấn <ArrowRight size={17} className="cta-arrow" aria-hidden="true" />
+          Nhận tư vấn <ArrowRight size={14} className="cta-arrow" aria-hidden="true" />
         </Link>
       </div>
     </section>

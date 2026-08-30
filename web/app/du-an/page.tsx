@@ -27,7 +27,7 @@ export default function Page() {
           {sectors.map(({ key, icon: Icon }) => (
             <div key={key} className="border border-border p-6">
               <div className="flex items-center gap-3 text-accent">
-                <Icon size={22} aria-hidden="true" />
+                <Icon size={18} aria-hidden="true" />
                 <h2 className="text-sm font-bold tracking-wider text-primary uppercase">{key}</h2>
               </div>
               <ul className="mt-4 flex flex-wrap gap-2">

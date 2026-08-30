@@ -7,7 +7,7 @@ export function Breadcrumb({ items }: { items: { label: string; href?: string }[
       <ol className="flex flex-wrap items-center gap-1.5 text-muted-foreground">
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight size={14} aria-hidden="true" className="shrink-0" />}
+            {i > 0 && <ChevronRight size={11} aria-hidden="true" className="shrink-0" />}
             {item.href ? (
               <Link href={item.href} className="hover:text-primary">
                 {item.label}
