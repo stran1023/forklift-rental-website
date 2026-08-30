@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MapPin, Phone } from 'lucide-react'
+import { Map, MapPin, Phone } from 'lucide-react'
 import { Logo } from '@/components/logo'
 import { company, nav, phoneHref } from '@/data/site'
 
@@ -43,7 +43,10 @@ export function Footer() {
               <MapPin size={18} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
               <span>{company.address}</span>
             </li>
-            <li className="text-white/50">Khu vực phục vụ: {company.serviceAreas.join(', ')}</li>
+            <li className="flex gap-3 text-white/50">
+              <Map size={18} className="mt-0.5 shrink-0 text-white/70" aria-hidden="true" />
+              <span>Khu vực phục vụ: {company.serviceAreas.join(', ')}</span>
+            </li>
           </ul>
         </div>
       </div>

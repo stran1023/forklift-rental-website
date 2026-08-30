@@ -29,11 +29,11 @@ export function SectionHeading({
         <Link
           href={link.href}
           className={cn(
-            'flex items-center gap-2 text-sm font-bold transition-colors',
+            'group flex items-center gap-2 text-sm font-bold transition-colors',
             tone === 'dark' ? 'text-white hover:text-white/70' : 'text-primary hover:text-accent',
           )}
         >
-          {link.label} <ArrowRight size={16} aria-hidden="true" />
+          {link.label} <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
         </Link>
       )}
     </div>

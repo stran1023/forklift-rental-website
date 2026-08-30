@@ -88,3 +88,40 @@ h3 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hero background slider: 3 images, each visible ~6s with a 2s cross-fade,
+   looping forever. One shared 24s keyframe (2s fade-in + 6s hold + 2s
+   fade-out per slide = 8s "slot" x 3 slides); each <img> layer is staggered
+   into its own slot via animation-delay (0s / 8s / 16s) so the fade-out of
+   one slide always overlaps the fade-in of the next. Pure CSS — no JS, no
+   layout shift (layers are absolutely positioned and stacked from load). */
+@keyframes hero-slide-fade {
+  0% { opacity: 0; }
+  8.3333% { opacity: 1; }
+  33.3333% { opacity: 1; }
+  41.6667% { opacity: 0; }
+  100% { opacity: 0; }
+}
+.hero-slide {
+  opacity: 0;
+  animation: hero-slide-fade 24s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    animation: none !important;
+    opacity: 0;
+  }
+  .hero-slide:first-child {
+    opacity: 1;
+  }
+}
+
+/* Shared CTA arrow micro-interaction: nudges right on hover of the nearest
+   `group` ancestor (Link/button). One definition, reused on every "Xem chi
+   tiết" / "Nhận báo giá" style CTA instead of repeating the transform. */
+.cta-arrow {
+  transition: transform 200ms ease-out;
+}
+.group:hover .cta-arrow {
+  transform: translateX(3px);
+}

@@ -13,9 +13,9 @@ export function CtaBanner() {
         <p className="mx-auto mt-4 max-w-xl text-white/75">Gửi yêu cầu để được tư vấn thiết bị và phương án phù hợp.</p>
         <Link
           href="/lien-he"
-          className="mt-8 inline-flex items-center gap-2 bg-accent px-6 py-4 font-bold text-accent-foreground transition hover:brightness-95"
+          className="group mt-8 inline-flex items-center gap-2 bg-accent px-6 py-4 font-bold text-accent-foreground transition hover:brightness-95"
         >
-          Nhận tư vấn <ArrowRight size={17} aria-hidden="true" />
+          Nhận tư vấn <ArrowRight size={17} className="cta-arrow" aria-hidden="true" />
         </Link>
       </div>
     </section>

@@ -2,6 +2,24 @@
 // and real company photos in asset/{can_cau,xe_nang,du_an_thuc_te}/ (copied into public/photos/).
 // Do not add facts, claims, prices, or contact details that are not verified in that document.
 
+import {
+  ArrowUpDown,
+  Building2,
+  CalendarRange,
+  Clock,
+  Construction,
+  FileCheck,
+  Forklift,
+  Gauge,
+  Handshake,
+  MessageSquare,
+  Send,
+  Truck,
+  UserCheck,
+  Wrench,
+  type LucideIcon,
+} from 'lucide-react'
+
 const img = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=85`
 /** Real company photo (not stock) — see public/photos/. */
 const photo = (name: string) => `/photos/${name}.jpg`
@@ -19,6 +37,7 @@ export type Service = {
   short: string
   description: string
   image: string
+  icon: LucideIcon
 }
 
 export type EquipmentCategory = {
@@ -28,6 +47,7 @@ export type EquipmentCategory = {
   image: string
   /** true for the category with verified technical detail (xe cẩu) */
   hasSpecs: boolean
+  icon: LucideIcon
 }
 
 export type EquipmentItem = {
@@ -92,6 +112,7 @@ export const services: Service[] = [
     description:
       'Cho thuê xe nâng phù hợp với nhu cầu kho bãi, nhà xưởng và công trình. Liên hệ để được tư vấn loại xe và tải trọng phù hợp với công việc thực tế.',
     image: photo('xe-nang-2'),
+    icon: Forklift,
   },
   {
     slug: 'cho-thue-xe-cau',
@@ -100,6 +121,7 @@ export const services: Service[] = [
     description:
       'Cho thuê xe cẩu với dải tải trọng đa dạng, đã tham gia thi công các công trình dầu khí và điện gió trọng điểm. Liên hệ để được tư vấn thiết bị và phương án cẩu lắp phù hợp.',
     image: photo('xe-cau-1'),
+    icon: Construction,
   },
   {
     slug: 'cho-thue-xe-nang-nguoi',
@@ -108,6 +130,7 @@ export const services: Service[] = [
     description:
       'Cho thuê xe nâng người phục vụ các hạng mục thi công, lắp đặt và bảo trì trên cao. Liên hệ để trao đổi độ cao nâng và điều kiện mặt bằng.',
     image: img('photo-1786057424991-dfb714428b8e'),
+    icon: ArrowUpDown,
   },
   {
     slug: 'cho-thue-thiet-bi-nang-ha-khac',
@@ -116,6 +139,7 @@ export const services: Service[] = [
     description:
       'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
     image: img('photo-1642721035664-ce3f84b33fde'),
+    icon: Wrench,
   },
   {
     slug: 'cho-thue-kem-tai-xe',
@@ -124,6 +148,7 @@ export const services: Service[] = [
     description:
       'Thiết bị cho thuê có thể đi kèm tài xế hoặc vận hành viên, hỗ trợ triển khai công việc an toàn và đúng phương án. Liên hệ để trao đổi nhu cầu nhân sự vận hành.',
     image: photo('cong-trinh-8'),
+    icon: UserCheck,
   },
   {
     slug: 'van-chuyen-giao-thiet-bi',
@@ -132,6 +157,7 @@ export const services: Service[] = [
     description:
       'Hỗ trợ vận chuyển và giao thiết bị đến địa điểm công trình theo kế hoạch đã thống nhất. Liên hệ để trao đổi địa điểm và thời gian giao nhận.',
     image: img('photo-1626121300305-def4dc305387'),
+    icon: Truck,
   },
   {
     slug: 'cho-thue-ngan-han',
@@ -140,6 +166,7 @@ export const services: Service[] = [
     description:
       'Cho thuê thiết bị theo thời gian ngắn hạn, phù hợp với các hạng mục công việc theo đợt. Liên hệ để trao đổi thời gian sử dụng cụ thể.',
     image: img('photo-1645736315000-6f788915923b'),
+    icon: Clock,
   },
   {
     slug: 'cho-thue-dai-han',
@@ -148,6 +175,7 @@ export const services: Service[] = [
     description:
       'Cho thuê thiết bị theo phương án dài hạn cho các công trình có thời gian thi công kéo dài. Liên hệ để trao đổi phương án và kế hoạch triển khai.',
     image: img('photo-1726731782158-fcf6822b6ca4'),
+    icon: CalendarRange,
   },
 ]
 
@@ -171,6 +199,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     short: `Tải trọng từ ${craneCapacitiesTon[0]} tấn đến ${craneCapacitiesTon[craneCapacitiesTon.length - 1]} tấn.`,
     image: photo('xe-cau-1'),
     hasSpecs: true,
+    icon: Construction,
   },
   {
     slug: 'xe-nang',
@@ -178,6 +207,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     short: 'Phục vụ kho bãi, nhà xưởng và công trình.',
     image: photo('xe-nang-2'),
     hasSpecs: false,
+    icon: Forklift,
   },
   {
     slug: 'xe-nang-nguoi',
@@ -185,6 +215,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     short: 'Phục vụ thi công và bảo trì trên cao.',
     image: img('photo-1786057424991-dfb714428b8e'),
     hasSpecs: false,
+    icon: ArrowUpDown,
   },
   {
     slug: 'thiet-bi-nang-ha-khac',
@@ -192,6 +223,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
     image: img('photo-1642721035664-ce3f84b33fde'),
     hasSpecs: false,
+    icon: Wrench,
   },
 ]
 
@@ -267,12 +299,12 @@ export const capacityBuckets: CapacityBucket[] = [
 // --- Rental process ---
 // Generic, verifiable workflow description (not a specific company claim/statistic).
 
-export const rentalProcessSteps = [
-  { title: 'Gửi yêu cầu', text: 'Gửi thông tin qua form hoặc gọi trực tiếp hotline.' },
-  { title: 'Tư vấn thiết bị', text: 'Trao đổi tải trọng, thời gian và điều kiện công trình.' },
-  { title: 'Nhận báo giá', text: 'Nhận phương án và báo giá phù hợp với nhu cầu.' },
-  { title: 'Điều phối thiết bị', text: 'Thống nhất lịch trình và điều phối thiết bị đến công trình.' },
-  { title: 'Bàn giao & hỗ trợ', text: 'Bàn giao thiết bị kèm tài xế / vận hành viên khi cần.' },
+export const rentalProcessSteps: { title: string; text: string; icon: LucideIcon }[] = [
+  { title: 'Gửi yêu cầu', text: 'Gửi thông tin qua form hoặc gọi trực tiếp hotline.', icon: Send },
+  { title: 'Tư vấn thiết bị', text: 'Trao đổi tải trọng, thời gian và điều kiện công trình.', icon: MessageSquare },
+  { title: 'Nhận báo giá', text: 'Nhận phương án và báo giá phù hợp với nhu cầu.', icon: FileCheck },
+  { title: 'Điều phối thiết bị', text: 'Thống nhất lịch trình và điều phối thiết bị đến công trình.', icon: Truck },
+  { title: 'Bàn giao & hỗ trợ', text: 'Bàn giao thiết bị kèm tài xế / vận hành viên khi cần.', icon: Handshake },
 ]
 
 // --- Reference projects (Mục 2 "Định vị thương hiệu & điểm mạnh" của tài liệu gốc) ---
@@ -336,11 +368,11 @@ export const testimonials: Testimonial[] = [
 // --- Trust metrics ---
 // Measurable, verifiable facts only (no invented years-of-experience/customer counts).
 
-export const trustMetrics = [
-  { value: company.foundedDate.split('/').at(-1) ?? '', label: 'Năm thành lập' },
-  { value: `${craneCapacitiesTon.at(-1)} tấn`, label: 'Sức nâng xe cẩu tối đa' },
-  { value: `${referenceProjects.length}`, label: 'Công trình đã tham gia' },
-  { value: 'Có', label: 'Tài xế / vận hành viên đi kèm' },
+export const trustMetrics: { value: string; label: string; icon: LucideIcon }[] = [
+  { value: company.foundedDate.split('/').at(-1) ?? '', label: 'Năm thành lập', icon: Building2 },
+  { value: `${craneCapacitiesTon.at(-1)} tấn`, label: 'Sức nâng xe cẩu tối đa', icon: Gauge },
+  { value: `${referenceProjects.length}`, label: 'Công trình đã tham gia', icon: Construction },
+  { value: 'Có', label: 'Tài xế / vận hành viên đi kèm', icon: UserCheck },
 ]
 
 // --- SEO / site config ---
@@ -354,7 +386,8 @@ export const seo = {
 
 // --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
 
-export const heroImage = photo('hero-wide')
+/** Background slider on the hero section — real company photos, cropped for a wide band. */
+export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
 export const aboutImage = photo('cong-trinh-2')
 export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
 
