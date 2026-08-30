@@ -16,7 +16,7 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }, (_, i) => (
         <Star
           key={i}
-          size={16}
+          size={13}
           aria-hidden="true"
           className={i < rating ? 'fill-accent text-accent' : 'fill-none text-border'}
         />
@@ -29,7 +29,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   return (
     <figure className="flex flex-col border border-border bg-card p-6">
       <div className="flex items-center justify-between">
-        <Quote className="text-accent" size={24} aria-hidden="true" />
+        <Quote className="text-accent" size={19} aria-hidden="true" />
         <StarRating rating={t.rating} />
       </div>
 
@@ -50,7 +50,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
       {t.recommended && (
         <p className="mt-4 flex items-center gap-2 border-t border-border pt-4 text-xs font-bold text-primary uppercase">
-          <ThumbsUp size={14} className="text-accent" aria-hidden="true" />
+          <ThumbsUp size={11} className="text-accent" aria-hidden="true" />
           Giới thiệu cho người khác
         </p>
       )}
@@ -66,7 +66,7 @@ export function Testimonials() {
 
         {testimonials.length === 0 ? (
           <div className="border border-dashed border-border bg-card px-6 py-14 text-center">
-            <Quote className="mx-auto text-muted-foreground" size={32} aria-hidden="true" />
+            <Quote className="mx-auto text-muted-foreground" size={26} aria-hidden="true" />
             <p className="mt-4 text-lg font-bold text-primary">Chưa có đánh giá từ khách hàng</p>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
               Hãy là người đầu tiên chia sẻ trải nghiệm của bạn với {company.brandName}.
@@ -75,7 +75,7 @@ export function Testimonials() {
               href="/lien-he"
               className="mt-6 inline-flex items-center gap-2 bg-accent px-5 py-3 text-sm font-bold text-accent-foreground transition hover:brightness-95"
             >
-              Gửi đánh giá của bạn <ArrowRight size={16} aria-hidden="true" />
+              Gửi đánh giá của bạn <ArrowRight size={13} aria-hidden="true" />
             </Link>
           </div>
         ) : (

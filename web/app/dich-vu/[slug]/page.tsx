@@ -41,13 +41,13 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
               href={`/lien-he?service=${encodeURIComponent(service.title)}`}
               className="flex items-center gap-2 bg-accent px-6 py-4 font-bold text-accent-foreground transition hover:brightness-95"
             >
-              Nhận báo giá <ArrowRight size={17} aria-hidden="true" />
+              Nhận báo giá <ArrowRight size={14} aria-hidden="true" />
             </Link>
             <a
               href={phoneHref}
               className="flex items-center gap-2 border border-primary/30 px-6 py-4 font-bold text-primary transition hover:bg-secondary"
             >
-              <Phone size={17} aria-hidden="true" /> Gọi {company.phone}
+              <Phone size={14} aria-hidden="true" /> Gọi {company.phone}
             </a>
           </div>
         </div>

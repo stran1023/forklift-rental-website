@@ -141,7 +141,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
         className="flex h-12 items-center justify-center gap-2 bg-accent font-bold text-accent-foreground transition hover:brightness-95 disabled:opacity-60"
       >
         {submitting ? 'Đang gửi…' : 'Gửi yêu cầu'}
-        {!submitting && <ArrowRight size={16} aria-hidden="true" />}
+        {!submitting && <ArrowRight size={13} aria-hidden="true" />}
       </button>
       <p className="text-xs text-muted-foreground">Thông tin của bạn chỉ được dùng để liên hệ tư vấn.</p>
     </form>

@@ -66,7 +66,7 @@ export function Header() {
           aria-label={`Liên hệ ngay — gọi ${company.phone}`}
           className="hidden items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm lg:flex"
         >
-          <PhoneCall size={18} aria-hidden="true" />
+          <PhoneCall size={14} aria-hidden="true" />
           LIÊN HỆ NGAY · {company.phone}
         </a>
 
@@ -78,7 +78,7 @@ export function Header() {
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+          {open ? <X size={19} aria-hidden="true" /> : <Menu size={19} aria-hidden="true" />}
         </button>
       </div>
 
@@ -106,7 +106,7 @@ export function Header() {
             aria-label={`Liên hệ ngay — gọi ${company.phone}`}
             className="mt-4 mb-4 flex h-14 items-center justify-center gap-2 rounded-full bg-accent text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out active:scale-95 active:shadow-sm"
           >
-            <PhoneCall size={18} aria-hidden="true" /> LIÊN HỆ NGAY · {company.phone}
+            <PhoneCall size={14} aria-hidden="true" /> LIÊN HỆ NGAY · {company.phone}
           </a>
         </nav>
       )}

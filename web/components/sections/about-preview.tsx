@@ -17,7 +17,7 @@ export function AboutPreview() {
           tham gia thi công các công trình trọng điểm ngành dầu khí và điện gió.
         </p>
         <Link href="/gioi-thieu" className="mt-7 inline-flex items-center gap-2 font-bold text-primary hover:text-accent">
-          Tìm hiểu về công ty <ArrowRight size={17} aria-hidden="true" />
+          Tìm hiểu về công ty <ArrowRight size={14} aria-hidden="true" />
         </Link>
       </div>
     </section>

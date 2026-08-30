@@ -29,7 +29,7 @@ export default function Page() {
           <div className="mt-7 grid gap-4 sm:grid-cols-2">
             {company.differentiators.map((point) => (
               <div key={point} className="flex items-center gap-3">
-                <CheckCircle2 className="shrink-0 text-accent" size={20} aria-hidden="true" />
+                <CheckCircle2 className="shrink-0 text-accent" size={16} aria-hidden="true" />
                 <span className="text-sm font-bold text-primary">{point}</span>
               </div>
             ))}

@@ -33,7 +33,7 @@ export function SectionHeading({
             tone === 'dark' ? 'text-white hover:text-white/70' : 'text-primary hover:text-accent',
           )}
         >
-          {link.label} <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
+          {link.label} <ArrowRight size={13} className="cta-arrow" aria-hidden="true" />
         </Link>
       )}
     </div>

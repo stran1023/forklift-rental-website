@@ -34,17 +34,17 @@ export function Footer() {
           <h2 className="mb-4 text-base font-bold uppercase tracking-wider text-white">Liên hệ</h2>
           <ul className="space-y-3 text-sm leading-6 text-white/70">
             <li className="flex gap-3">
-              <Phone size={18} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
+              <Phone size={14} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
               <a href={phoneHref} className="hover:text-white">
                 {company.phone}
               </a>
             </li>
             <li className="flex gap-3">
-              <MapPin size={18} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
+              <MapPin size={14} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
               <span>{company.address}</span>
             </li>
             <li className="flex gap-3 text-white/50">
-              <Map size={18} className="mt-0.5 shrink-0 text-white/70" aria-hidden="true" />
+              <Map size={14} className="mt-0.5 shrink-0 text-white/70" aria-hidden="true" />
               <span>Khu vực phục vụ: {company.serviceAreas.join(', ')}</span>
             </li>
           </ul>

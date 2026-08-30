@@ -15,7 +15,7 @@ export function EquipmentCard({ item }: { item: EquipmentItem }) {
           sizes="(max-width:768px) 100vw, 33vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
-        <span className="absolute top-3 left-3 bg-[var(--brand-navy)] px-2.5 py-1 text-[11px] font-bold tracking-wide text-white uppercase">
+        <span className="absolute top-3 left-3 bg-[var(--brand-navy)] px-2.5 py-1 text-[9px] font-bold tracking-wide text-white uppercase">
           {item.category}
         </span>
       </Link>
@@ -25,14 +25,14 @@ export function EquipmentCard({ item }: { item: EquipmentItem }) {
         </Link>
         {item.capacityTon !== null && (
           <span className="mt-1.5 flex items-center gap-1.5 text-sm font-bold text-accent">
-            <Gauge size={15} aria-hidden="true" />
+            <Gauge size={12} aria-hidden="true" />
             Sức nâng {item.capacityTon} tấn
           </span>
         )}
         <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{item.short}</p>
         <div className="mt-4 flex items-center justify-between gap-3">
           <Link href={`/thiet-bi/${item.slug}`} className="flex items-center gap-1.5 text-sm font-bold text-primary hover:text-accent">
-            Xem chi tiết <ArrowRight size={16} className="cta-arrow" aria-hidden="true" />
+            Xem chi tiết <ArrowRight size={13} className="cta-arrow" aria-hidden="true" />
           </Link>
           <Link
             href={`/lien-he?service=${encodeURIComponent(item.title)}`}
