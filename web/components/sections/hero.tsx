@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Building2, Construction, Gauge, Truck, UserCheck } from 'lucide-react'
+import { ArrowRight, Building2, Construction, FileText, Gauge, Truck, UserCheck } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { company } from '@/data/site'
 import { HeroSearch } from '@/components/sections/hero-search'
@@ -38,13 +38,8 @@ export function Hero() {
               href="/lien-he"
               className="group flex h-14 items-center gap-2 bg-accent px-7 text-base font-bold text-accent-foreground shadow-lg shadow-black/20 transition hover:brightness-95"
             >
+              <FileText size={18} aria-hidden="true" />
               Nhận báo giá <ArrowRight size={18} className="cta-arrow" aria-hidden="true" />
-            </Link>
-            <Link
-              href="/thiet-bi"
-              className="flex h-14 items-center gap-2 border border-white/40 px-7 text-base font-bold text-white transition hover:bg-white/10"
-            >
-              Tìm thiết bị
             </Link>
           </div>
         </div>

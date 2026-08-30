@@ -67,7 +67,7 @@ export function Header() {
           className="hidden items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm lg:flex"
         >
           <PhoneCall size={18} aria-hidden="true" />
-          LIÊN HỆ NGAY
+          LIÊN HỆ NGAY · {company.phone}
         </a>
 
         <button
