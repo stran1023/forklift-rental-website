@@ -1,5 +1,5 @@
 // Verified content only — sourced from docs/Thong_Tin_Website_Eastern_SC.md, asset/logo.jpg,
-// and real company photos in asset/{can_cau,xe_nang,du_an_thuc_te}/ (copied into public/photos/).
+// and real company photos in asset/{xe_cau,xe_nang,xe_nang_nguoi,cong_trinh}/ (copied into public/photos/).
 // Do not add facts, claims, prices, or contact details that are not verified in that document.
 
 import {
@@ -24,12 +24,12 @@ const img = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=c
 /** Real company photo (not stock) — see public/photos/. */
 const photo = (name: string) => `/photos/${name}.jpg`
 
-/** Real xe cẩu (crawler crane) photos from company job sites. */
-export const realCraneImages = Array.from({ length: 8 }, (_, i) => photo(`xe-cau-${i + 1}`))
 /** Real xe nâng (forklift) photos, company-branded units. */
-export const realForkliftImages = Array.from({ length: 4 }, (_, i) => photo(`xe-nang-${i + 1}`))
+export const realForkliftImages = [photo('xe-nang-1'), photo('xe-nang-2')]
+/** Real xe nâng người (personnel lift) photo. */
+export const realPersonnelLiftImage = photo('xe-nang-nguoi-1')
 /** Real job-site photos (not tied to a specific named project — see referenceProjects). */
-export const realProjectPhotos = Array.from({ length: 8 }, (_, i) => photo(`cong-trinh-${i + 1}`))
+export const realProjectPhotos = Array.from({ length: 25 }, (_, i) => photo(`cong-trinh-${i + 1}`))
 
 export type Service = {
   slug: string
@@ -85,8 +85,9 @@ export const company = {
   englishName: 'Eastern S&C Company Limited',
   foundedDate: '19/05/2020',
   address: '15A Viba, Phường Vũng Tàu, TP. Hồ Chí Minh',
-  phone: '0934.090.659',
-  phoneDigits: '0934090659',
+  phone: '0986.371.079',
+  phoneDigits: '0986371079',
+  contactPerson: 'Nguyễn Quang Hòa',
   serviceAreas: ['Ninh Thuận', 'Bình Thuận', 'Bình Dương', 'TP. Hồ Chí Minh', 'Cà Mau'],
   differentiators: ['Giá cả hợp lý', 'Uy tín', 'Chất lượng hiệu quả'],
 }
@@ -111,7 +112,7 @@ export const services: Service[] = [
     short: 'Xe nâng phục vụ kho bãi, nhà xưởng và công trình.',
     description:
       'Cho thuê xe nâng phù hợp với nhu cầu kho bãi, nhà xưởng và công trình. Liên hệ để được tư vấn loại xe và tải trọng phù hợp với công việc thực tế.',
-    image: photo('xe-nang-2'),
+    image: realForkliftImages[0],
     icon: Forklift,
   },
   {
@@ -120,7 +121,7 @@ export const services: Service[] = [
     short: 'Xe cẩu nhiều tải trọng, phục vụ công trình dầu khí, điện gió và xây dựng.',
     description:
       'Cho thuê xe cẩu với dải tải trọng đa dạng, đã tham gia thi công các công trình dầu khí và điện gió trọng điểm. Liên hệ để được tư vấn thiết bị và phương án cẩu lắp phù hợp.',
-    image: photo('xe-cau-1'),
+    image: photo('xe-cau-20-tan'),
     icon: Construction,
   },
   {
@@ -129,7 +130,7 @@ export const services: Service[] = [
     short: 'Thiết bị nâng người phục vụ thi công và bảo trì trên cao.',
     description:
       'Cho thuê xe nâng người phục vụ các hạng mục thi công, lắp đặt và bảo trì trên cao. Liên hệ để trao đổi độ cao nâng và điều kiện mặt bằng.',
-    image: img('photo-1786057424991-dfb714428b8e'),
+    image: realPersonnelLiftImage,
     icon: ArrowUpDown,
   },
   {
@@ -192,12 +193,17 @@ export const craneOrigins = ['Nhật Bản', 'Trung Quốc', 'Mỹ', 'Đức']
 
 export const craneModelYears = ['2010', '2015', '2021']
 
+/** Real xe cẩu photos, one per verified capacity class — filename matches the ton figure. */
+export const craneImageByTon: Record<string, string> = Object.fromEntries(
+  craneCapacitiesTon.map((ton) => [ton, photo(`xe-cau-${ton}-tan`)]),
+)
+
 export const equipmentCategories: EquipmentCategory[] = [
   {
     slug: 'xe-cau',
     title: 'Xe cẩu',
     short: `Tải trọng từ ${craneCapacitiesTon[0]} tấn đến ${craneCapacitiesTon[craneCapacitiesTon.length - 1]} tấn.`,
-    image: photo('xe-cau-1'),
+    image: photo('xe-cau-20-tan'),
     hasSpecs: true,
     icon: Construction,
   },
@@ -205,7 +211,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'xe-nang',
     title: 'Xe nâng',
     short: 'Phục vụ kho bãi, nhà xưởng và công trình.',
-    image: photo('xe-nang-2'),
+    image: realForkliftImages[0],
     hasSpecs: false,
     icon: Forklift,
   },
@@ -213,7 +219,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'xe-nang-nguoi',
     title: 'Xe nâng người',
     short: 'Phục vụ thi công và bảo trì trên cao.',
-    image: img('photo-1786057424991-dfb714428b8e'),
+    image: realPersonnelLiftImage,
     hasSpecs: false,
     icon: ArrowUpDown,
   },
@@ -237,12 +243,12 @@ export const getEquipmentCategory = (slug: string) => equipmentCategories.find((
  */
 export const equipmentItems: EquipmentItem[] = [
   ...craneCapacitiesTon.map(
-    (ton, i): EquipmentItem => ({
+    (ton): EquipmentItem => ({
       slug: `xe-cau-${ton}-tan`,
       title: `Xe cẩu ${ton} tấn`,
       category: 'Xe cẩu',
       capacityTon: Number(ton),
-      image: realCraneImages[i % realCraneImages.length],
+      image: craneImageByTon[ton],
       short: `Sức nâng ${ton} tấn, có kèm tài xế / vận hành viên.`,
       description: `Xe cẩu tải trọng ${ton} tấn, xuất xứ ${craneOrigins.join(', ')}, đời xe ${craneModelYears.join(', ')}. Có kèm tài xế / vận hành viên.`,
       applications: 'Phù hợp cho công trình dầu khí, điện gió và xây dựng công nghiệp.',
@@ -254,7 +260,7 @@ export const equipmentItems: EquipmentItem[] = [
     title: 'Xe nâng',
     category: 'Xe nâng',
     capacityTon: null,
-    image: photo('xe-nang-2'),
+    image: realForkliftImages[0],
     short: 'Phục vụ kho bãi, nhà xưởng và công trình.',
     description: 'Cho thuê xe nâng phù hợp với nhu cầu kho bãi, nhà xưởng và công trình. Liên hệ để được tư vấn loại xe và tải trọng phù hợp.',
     applications: 'Phù hợp cho kho bãi, nhà xưởng và công trình.',
@@ -265,7 +271,7 @@ export const equipmentItems: EquipmentItem[] = [
     title: 'Xe nâng người',
     category: 'Xe nâng người',
     capacityTon: null,
-    image: img('photo-1786057424991-dfb714428b8e'),
+    image: realPersonnelLiftImage,
     short: 'Phục vụ thi công và bảo trì trên cao.',
     description: 'Cho thuê xe nâng người phục vụ các hạng mục thi công, lắp đặt và bảo trì trên cao. Liên hệ để trao đổi độ cao nâng và điều kiện mặt bằng.',
     applications: 'Phù hợp cho thi công, lắp đặt và bảo trì trên cao.',

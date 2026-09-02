@@ -8,7 +8,7 @@ const sectors = [
   { key: 'Điện gió' as const, icon: Wind },
 ]
 
-const galleryPhotos = [realProjectPhotos[2], realProjectPhotos[4], realProjectPhotos[5], realProjectPhotos[6]]
+const galleryPhotos = [realProjectPhotos[2], realProjectPhotos[8], realProjectPhotos[15], realProjectPhotos[22]]
 
 export function ReferenceProjects() {
   return (
