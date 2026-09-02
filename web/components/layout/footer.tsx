@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { Map, MapPin, Phone } from 'lucide-react'
+import { ArrowRight, Map, MapPin, Phone } from 'lucide-react'
 import { Logo } from '@/components/logo'
 import { company, nav, phoneHref } from '@/data/site'
 
 export function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="border-t border-border bg-[var(--brand-navy)] text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3 lg:px-8">
+    <footer className="border-t border-white/10 bg-[var(--brand-navy-deep)] text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <Logo variant="dark" className="h-16 w-auto" />
           <p className="mt-5 max-w-xs text-sm leading-6 text-white/70">
@@ -32,11 +32,12 @@ export function Footer() {
 
         <div>
           <h2 className="mb-4 text-base font-bold uppercase tracking-wider text-white">Liên hệ</h2>
-          <ul className="space-y-3 text-sm leading-6 text-white/70">
+          <ul className="space-y-4 text-sm leading-6 text-white/70">
             <li className="flex gap-3">
-              <Phone size={14} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
+              <Phone size={14} className="mt-1 shrink-0 text-white" aria-hidden="true" />
               <a href={phoneHref} className="hover:text-white">
-                {company.phone} ({company.contactPerson})
+                <span className="block text-lg font-bold text-white">{company.phone}</span>
+                <span className="text-white/60">{company.contactPerson}</span>
               </a>
             </li>
             <li className="flex gap-3">
@@ -45,9 +46,20 @@ export function Footer() {
             </li>
             <li className="flex gap-3 text-white/50">
               <Map size={14} className="mt-0.5 shrink-0 text-white/70" aria-hidden="true" />
-              <span>Khu vực phục vụ: {company.serviceAreas.join(', ')}</span>
+              <span>{company.serviceAreas.join(' · ')}</span>
             </li>
           </ul>
+        </div>
+
+        <div className="border border-white/15 bg-white/5 p-6">
+          <h2 className="text-lg leading-snug font-bold text-white">Bạn cần thiết bị cho công trình?</h2>
+          <p className="mt-2 text-sm text-white/70">Chúng tôi sẵn sàng hỗ trợ và tư vấn.</p>
+          <Link
+            href="/lien-he"
+            className="group mt-5 flex h-12 items-center justify-center gap-2 bg-accent px-5 text-sm font-bold text-accent-foreground transition hover:brightness-95"
+          >
+            Nhận báo giá <ArrowRight size={14} className="cta-arrow" aria-hidden="true" />
+          </Link>
         </div>
       </div>
 

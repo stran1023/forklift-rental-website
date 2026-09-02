@@ -29,7 +29,7 @@ export const realForkliftImages = [photo('xe-nang-1'), photo('xe-nang-2')]
 /** Real xe nâng người (personnel lift) photo. */
 export const realPersonnelLiftImage = photo('xe-nang-nguoi-1')
 /** Real job-site photos (not tied to a specific named project — see referenceProjects). */
-export const realProjectPhotos = Array.from({ length: 25 }, (_, i) => photo(`cong-trinh-${i + 1}`))
+export const realProjectPhotos = Array.from({ length: 28 }, (_, i) => photo(`cong-trinh-${i + 1}`))
 
 export type Service = {
   slug: string
@@ -385,7 +385,7 @@ export const testimonials: Testimonial[] = [
 
 export const trustMetrics: { value: string; label: string; icon: LucideIcon }[] = [
   { value: company.foundedDate.split('/').at(-1) ?? '', label: 'Năm thành lập', icon: Building2 },
-  { value: `${craneCapacitiesTon.at(-1)} tấn`, label: 'Sức nâng xe cẩu tối đa', icon: Gauge },
+  { value: `${Number(craneCapacitiesTon.at(-1)).toLocaleString('vi-VN')} tấn`, label: 'Sức nâng xe cẩu tối đa', icon: Gauge },
   { value: `${referenceProjects.length}`, label: 'Công trình đã tham gia', icon: Construction },
   { value: 'Có', label: 'Tài xế / vận hành viên đi kèm', icon: UserCheck },
 ]
@@ -407,8 +407,8 @@ export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('
 export const aboutImage = photo('worker-1')
 /** Real photo — used as the Giới thiệu page's hero band background. */
 export const aboutHeroImage = photo('cong-trinh-1')
-/** Stock (Unsplash) — no real photo fits this slot yet. */
-export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
+/** Real photo — crew photo at a job site (asset/Worker_1.jpg), first image on the Giới thiệu page. */
+export const introImage = photo('worker-2')
 
 export const site = { company, services, equipmentCategories, equipmentItems, referenceProjects }
 export default site

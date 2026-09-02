@@ -7,7 +7,6 @@ import { RentalProcess } from '@/components/sections/rental-process'
 import { ReferenceProjects } from '@/components/sections/reference-projects'
 import { Testimonials } from '@/components/sections/testimonials'
 import { AboutPreview } from '@/components/sections/about-preview'
-import { CtaBanner } from '@/components/sections/cta-banner'
 
 export default function Page() {
   return (
@@ -20,7 +19,6 @@ export default function Page() {
       <ReferenceProjects />
       <Testimonials />
       <AboutPreview />
-      <CtaBanner />
     </Shell>
   )
 }
