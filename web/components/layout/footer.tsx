@@ -36,7 +36,7 @@ export function Footer() {
             <li className="flex gap-3">
               <Phone size={14} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
               <a href={phoneHref} className="hover:text-white">
-                {company.phone}
+                {company.phone} ({company.contactPerson})
               </a>
             </li>
             <li className="flex gap-3">

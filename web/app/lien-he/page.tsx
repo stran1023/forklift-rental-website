@@ -21,7 +21,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ s
           <p className="mt-4 leading-7 text-muted-foreground">Gọi trực tiếp hoặc điền vào form bên cạnh, chúng tôi sẽ liên hệ lại sớm nhất.</p>
           <div className="mt-8 space-y-5 text-sm">
             <a href={phoneHref} className="flex items-center gap-3 font-bold text-primary hover:text-accent">
-              <Phone className="text-accent" size={16} aria-hidden="true" /> {company.phone}
+              <Phone className="text-accent" size={16} aria-hidden="true" /> {company.phone} ({company.contactPerson})
             </a>
             <p className="flex items-start gap-3 text-foreground">
               <MapPin className="mt-0.5 shrink-0 text-accent" size={16} aria-hidden="true" /> {company.address}
