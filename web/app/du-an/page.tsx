@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { Factory, Wind } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
 import { PageHero } from '@/components/ui/page-hero'
+import { ProjectGallery } from '@/components/sections/project-gallery'
 import { company, realProjectPhotos, referenceProjects } from '@/data/site'
 
 export const metadata: Metadata = {
@@ -48,15 +48,9 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
           <h2 className="text-2xl font-bold text-primary md:text-3xl">Hình ảnh công trình thực tế</h2>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            Hình ảnh thực tế từ các công trình công ty đã triển khai, chưa gắn với tên công trình cụ thể ở trên.
+            Hình ảnh thực tế từ các công trình công ty đã triển khai, chưa gắn với tên công trình cụ thể ở trên. Nhấn vào ảnh để xem toàn màn hình.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {realProjectPhotos.map((src) => (
-              <div key={src} className="relative aspect-[3/4] overflow-hidden bg-muted">
-                <Image src={src} alt="" aria-hidden="true" fill sizes="(max-width:768px) 50vw, 25vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
+          <ProjectGallery photos={realProjectPhotos} />
         </div>
       </section>
     </Shell>

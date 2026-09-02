@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-8 lg:grid-cols-2 lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-          <Image src={item.image} alt="" aria-hidden="true" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" />
+          <Image src={item.image} alt="" aria-hidden="true" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-contain p-4" />
         </div>
 
         <div>

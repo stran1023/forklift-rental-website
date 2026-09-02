@@ -4,7 +4,7 @@ import { useRef, useState, type FormEvent } from 'react'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { serviceOptions } from '@/data/site'
 
-type Errors = Partial<Record<'name' | 'phone' | 'message', string>>
+type Errors = Partial<Record<'name' | 'phone' | 'message', string>> & { submit?: string }
 
 const phonePattern = /^(0|\+84)\d{9,10}$/
 
@@ -15,7 +15,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   const formRef = useRef<HTMLFormElement>(null)
   const firstErrorRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
     const name = String(data.get('name') ?? '').trim()
@@ -35,11 +35,29 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
     }
 
     setSubmitting(true)
-    // Không có backend ở giai đoạn này — hiển thị trạng thái xác nhận trên giao diện.
-    window.setTimeout(() => {
-      setSubmitting(false)
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          message,
+          email: String(data.get('email') ?? '').trim(),
+          companyName: String(data.get('company') ?? '').trim(),
+          service: String(data.get('service') ?? '').trim(),
+          duration: String(data.get('duration') ?? '').trim(),
+          location: String(data.get('location') ?? '').trim(),
+        }),
+      })
+
+      if (!res.ok) throw new Error('request failed')
       setSent(true)
-    }, 500)
+    } catch {
+      setErrors({ submit: 'Gửi yêu cầu thất bại. Vui lòng thử lại hoặc gọi trực tiếp cho chúng tôi.' })
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (sent) {
