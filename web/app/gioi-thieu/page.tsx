@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
 import { PageHero } from '@/components/ui/page-hero'
-import { aboutImage, company } from '@/data/site'
+import { aboutHeroImage, aboutImage, company, founder } from '@/data/site'
 
 export const metadata: Metadata = {
   title: 'Giới thiệu',
@@ -13,7 +13,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Shell>
-      <PageHero title="Giới thiệu" text={`${company.legalName} — thành lập ngày ${company.foundedDate}.`} />
+      <PageHero
+        title="Giới thiệu"
+        text={`${company.legalName} — thành lập ngày ${company.foundedDate}.`}
+        image={aboutHeroImage}
+        logoWatermark
+      />
 
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-2 lg:items-center lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden">
@@ -26,11 +31,11 @@ export default function Page() {
             khác cho các doanh nghiệp, nhà xưởng và công trình. Công ty đã tham gia thi công các công trình trọng điểm ngành dầu khí
             và điện gió.
           </p>
-          <div className="mt-7 grid gap-4 sm:grid-cols-2">
+          <div className="mt-7 grid gap-4 sm:grid-cols-3">
             {company.differentiators.map((point) => (
-              <div key={point} className="flex items-center gap-3">
-                <CheckCircle2 className="shrink-0 text-accent" size={16} aria-hidden="true" />
-                <span className="text-sm font-bold text-primary">{point}</span>
+              <div key={point} className="border border-border bg-card p-4">
+                <CheckCircle2 className="text-accent" size={20} aria-hidden="true" />
+                <span className="mt-2 block text-sm font-bold text-primary">{point}</span>
               </div>
             ))}
           </div>
@@ -45,9 +50,41 @@ export default function Page() {
             <Row label="Thương hiệu" value={company.brandName} />
             <Row label="Ngày thành lập" value={company.foundedDate} />
             <Row label="Địa chỉ trụ sở" value={company.address} />
-            <Row label="Khu vực phục vụ" value={company.serviceAreas.join(', ')} />
-            <Row label="Hotline" value={company.phone} />
+            <div>
+              <dt className="text-xs font-bold tracking-wider text-muted-foreground uppercase">Khu vực phục vụ</dt>
+              <dd className="mt-2 flex flex-wrap gap-2">
+                {company.serviceAreas.map((area) => (
+                  <span key={area} className="border border-border bg-card px-2.5 py-1 text-xs font-semibold text-primary">
+                    {area}
+                  </span>
+                ))}
+              </dd>
+            </div>
+            <Row label="Hotline" value={`${company.phone} (${company.contactPerson})`} />
           </dl>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div className="relative aspect-[3/4] w-full overflow-hidden lg:mx-auto lg:max-w-md">
+            <Image
+              src={founder.image}
+              alt={`${founder.name} — ${founder.title}`}
+              fill
+              sizes="(max-width:1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <span className="text-xs font-bold tracking-wider text-accent uppercase">Thông điệp từ Giám đốc điều hành</span>
+            <blockquote className="mt-4 border-l-4 border-accent pl-6 text-lg leading-8 text-foreground italic">
+              “{founder.quote}”
+            </blockquote>
+            <p className="mt-6 text-base font-bold text-primary">
+              {founder.name} <span className="font-normal text-muted-foreground">— {founder.title}</span>
+            </p>
+          </div>
         </div>
       </section>
     </Shell>

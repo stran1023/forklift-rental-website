@@ -94,6 +94,15 @@ export const company = {
 
 export const phoneHref = `tel:${company.phoneDigits}`
 
+export const founder = {
+  name: 'Ông Nguyễn Quang Hòa',
+  title: 'Giám đốc điều hành',
+  quote:
+    'Tại EASTERN S&C COMPANY LIMITED, chúng tôi không chỉ cung cấp thiết bị, chúng tôi cung cấp sự an tâm và giải pháp tối ưu cho mọi công trình. Tầm nhìn của chúng tôi là trở thành đối tác tin cậy hàng đầu trong ngành nâng hạ tại Việt Nam, luôn đặt an toàn và hiệu quả của khách hàng lên hàng đầu.',
+  /** Real photo (asset/CEO.jpg) — founder standing in front of company crane equipment. */
+  image: photo('ceo'),
+}
+
 export const nav = [
   { label: 'Trang chủ', href: '/' },
   { label: 'Giới thiệu', href: '/gioi-thieu' },
@@ -390,11 +399,15 @@ export const seo = {
   description: `${company.brandName} cho thuê xe cẩu, xe nâng và thiết bị nâng hạ, phục vụ các công trình dầu khí, điện gió và xây dựng công nghiệp tại ${company.serviceAreas.join(', ')}.`,
 }
 
-// --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
+// --- Decorative imagery ---
 
 /** Background slider on the hero section — real company photos, cropped for a wide band. */
 export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
-export const aboutImage = photo('cong-trinh-2')
+/** Real photo — job site with the company's crawler cranes (asset/thiet_bi_nang_ha_khac.jpg). */
+export const aboutImage = photo('thiet-bi-nang-ha-khac-1')
+/** Real photo — used as the Giới thiệu page's hero band background. */
+export const aboutHeroImage = photo('cong-trinh-1')
+/** Stock (Unsplash) — no real photo fits this slot yet. */
 export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
 
 export const site = { company, services, equipmentCategories, equipmentItems, referenceProjects }

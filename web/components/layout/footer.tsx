@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-border bg-[var(--brand-navy)] text-white">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3 lg:px-8">
         <div>
-          <Logo variant="dark" className="h-14 w-auto" />
+          <Logo variant="dark" className="h-16 w-auto" />
           <p className="mt-5 max-w-xs text-sm leading-6 text-white/70">
             Cho thuê xe cẩu, xe nâng và thiết bị nâng hạ cho các công trình dầu khí, điện gió và xây dựng công nghiệp.
           </p>

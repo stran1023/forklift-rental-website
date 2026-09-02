@@ -28,7 +28,7 @@ export function Header() {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/95 shadow-sm backdrop-blur">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${company.brandName} — Trang chủ`}>
           <Logo variant="light" className="h-12 w-auto sm:h-14" />
