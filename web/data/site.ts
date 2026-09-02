@@ -410,5 +410,55 @@ export const aboutHeroImage = photo('cong-trinh-1')
 /** Real photo — crew photo at a job site (asset/Worker_1.jpg), first image on the Giới thiệu page. */
 export const introImage = photo('worker-2')
 
+// --- Page banner content (shared PageBanner component, one entry per page) ---
+
+export type PageBannerKey = 'about' | 'equipment' | 'services' | 'projects' | 'contact'
+
+export type PageBannerContent = {
+  eyebrow: string
+  title: string
+  description: string
+  image: string
+  alt: string
+}
+
+export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
+  about: {
+    eyebrow: `${company.brandName} · Nâng hạ & thiết bị`,
+    title: 'Giới thiệu',
+    description: 'Đồng hành cùng công trình. Vững vàng từng hành trình nâng hạ.',
+    image: aboutHeroImage,
+    alt: 'Xe cẩu tại công trình công nghiệp lớn',
+  },
+  equipment: {
+    eyebrow: 'Xe cẩu · Xe nâng · Thiết bị nâng hạ',
+    title: 'Thiết bị',
+    description: 'Giải pháp thiết bị nâng hạ đáp ứng đa dạng nhu cầu công trình.',
+    image: photo('xe-cau-800-tan'),
+    alt: 'Đội xe cẩu và thiết bị nâng hạ tại bãi tập kết',
+  },
+  services: {
+    eyebrow: 'Nâng hạ · Vận chuyển · Lắp đặt',
+    title: 'Dịch vụ',
+    description: 'Giải pháp nâng hạ và vận chuyển chuyên nghiệp cho công trình công nghiệp.',
+    image: photo('xe-cau-350-tan'),
+    alt: 'Xe cẩu đang thực hiện nâng hạ tại công trình',
+  },
+  projects: {
+    eyebrow: 'Dự án · Công trình công nghiệp',
+    title: 'Công trình',
+    description: 'Đồng hành cùng những công trình lớn với năng lực nâng hạ chuyên nghiệp.',
+    image: photo('cong-trinh-2'),
+    alt: 'Nhiều xe cẩu thi công tại công trình quy mô lớn',
+  },
+  contact: {
+    eyebrow: `${company.brandName} · Liên hệ`,
+    title: 'Liên hệ',
+    description: 'Trao đổi nhu cầu thiết bị và nhận tư vấn phù hợp cho công trình của bạn.',
+    image: aboutImage,
+    alt: 'Đội ngũ Xây Lắp Miền Đông tại công trình',
+  },
+}
+
 export const site = { company, services, equipmentCategories, equipmentItems, referenceProjects }
 export default site

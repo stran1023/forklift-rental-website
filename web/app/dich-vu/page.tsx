@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Shell } from '@/components/layout/shell'
-import { PageHero } from '@/components/ui/page-hero'
+import { PageBanner } from '@/components/ui/page-banner'
 import { ServiceCard } from '@/components/cards/service-card'
 import { company, services } from '@/data/site'
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Shell>
-      <PageHero title="Dịch vụ" text="Các dịch vụ cho thuê thiết bị nâng hạ hiện có. Liên hệ để được tư vấn phương án phù hợp." />
+      <PageBanner page="services" />
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (

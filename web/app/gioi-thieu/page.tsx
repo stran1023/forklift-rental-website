@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { CheckCircle2 } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
-import { PageHero } from '@/components/ui/page-hero'
-import { aboutHeroImage, company, founder, introImage } from '@/data/site'
+import { PageBanner } from '@/components/ui/page-banner'
+import { company, founder, introImage } from '@/data/site'
 
 export const metadata: Metadata = {
   title: 'Giới thiệu',
@@ -13,12 +13,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Shell>
-      <PageHero
-        title="Giới thiệu"
-        text={`${company.legalName} — thành lập ngày ${company.foundedDate}.`}
-        image={aboutHeroImage}
-        logoWatermark
-      />
+      <PageBanner page="about" />
 
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-2 lg:items-center lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden">
