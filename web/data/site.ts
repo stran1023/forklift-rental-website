@@ -121,7 +121,7 @@ export const services: Service[] = [
     short: 'Xe cẩu nhiều tải trọng, phục vụ công trình dầu khí, điện gió và xây dựng.',
     description:
       'Cho thuê xe cẩu với dải tải trọng đa dạng, đã tham gia thi công các công trình dầu khí và điện gió trọng điểm. Liên hệ để được tư vấn thiết bị và phương án cẩu lắp phù hợp.',
-    image: photo('xe-cau-20-tan'),
+    image: photo('xe-cau-250-tan'),
     icon: Construction,
   },
   {
@@ -148,7 +148,7 @@ export const services: Service[] = [
     short: 'Có đội ngũ tài xế và vận hành viên đi kèm thiết bị.',
     description:
       'Thiết bị cho thuê có thể đi kèm tài xế hoặc vận hành viên, hỗ trợ triển khai công việc an toàn và đúng phương án. Liên hệ để trao đổi nhu cầu nhân sự vận hành.',
-    image: photo('cong-trinh-8'),
+    image: realForkliftImages[1],
     icon: UserCheck,
   },
   {
