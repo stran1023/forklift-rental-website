@@ -148,7 +148,7 @@ export const services: Service[] = [
     short: 'Các thiết bị nâng hạ bổ sung theo yêu cầu công việc.',
     description:
       'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     icon: Wrench,
   },
   {
@@ -212,7 +212,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'xe-cau',
     title: 'Xe cẩu',
     short: `Tải trọng từ ${craneCapacitiesTon[0]} tấn đến ${craneCapacitiesTon[craneCapacitiesTon.length - 1]} tấn.`,
-    image: photo('xe-cau-20-tan'),
+    image: photo('xe-cau-250-tan'),
     hasSpecs: true,
     icon: Construction,
   },
@@ -236,7 +236,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'thiet-bi-nang-ha-khac',
     title: 'Thiết bị nâng hạ khác',
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     hasSpecs: false,
     icon: Wrench,
   },
@@ -291,7 +291,7 @@ export const equipmentItems: EquipmentItem[] = [
     title: 'Thiết bị nâng hạ khác',
     category: 'Thiết bị nâng hạ khác',
     capacityTon: null,
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
     description: 'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
     applications: 'Theo yêu cầu cụ thể của từng công trình.',
@@ -403,8 +403,8 @@ export const seo = {
 
 /** Background slider on the hero section — real company photos, cropped for a wide band. */
 export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
-/** Real photo — job site with the company's crawler cranes (asset/thiet_bi_nang_ha_khac.jpg). */
-export const aboutImage = photo('thiet-bi-nang-ha-khac-1')
+/** Real photo — crew and crane at a job site (asset/Worker.jpg). */
+export const aboutImage = photo('worker-1')
 /** Real photo — used as the Giới thiệu page's hero band background. */
 export const aboutHeroImage = photo('cong-trinh-1')
 /** Stock (Unsplash) — no real photo fits this slot yet. */
