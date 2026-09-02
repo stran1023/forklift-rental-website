@@ -29,7 +29,7 @@ export const realForkliftImages = [photo('xe-nang-1'), photo('xe-nang-2')]
 /** Real xe nâng người (personnel lift) photo. */
 export const realPersonnelLiftImage = photo('xe-nang-nguoi-1')
 /** Real job-site photos (not tied to a specific named project — see referenceProjects). */
-export const realProjectPhotos = Array.from({ length: 25 }, (_, i) => photo(`cong-trinh-${i + 1}`))
+export const realProjectPhotos = Array.from({ length: 28 }, (_, i) => photo(`cong-trinh-${i + 1}`))
 
 export type Service = {
   slug: string
@@ -93,6 +93,17 @@ export const company = {
 }
 
 export const phoneHref = `tel:${company.phoneDigits}`
+/** Zalo click-to-chat deep link — Zalo expects the international format (84-prefixed, no leading 0). */
+export const zaloHref = `https://zalo.me/${company.phoneDigits.replace(/^0/, '84')}`
+
+export const founder = {
+  name: 'Ông Nguyễn Quang Hòa',
+  title: 'Giám đốc điều hành',
+  quote:
+    'Tại EASTERN S&C COMPANY LIMITED, chúng tôi không chỉ cung cấp thiết bị, chúng tôi cung cấp sự an tâm và giải pháp tối ưu cho mọi công trình. Tầm nhìn của chúng tôi là trở thành đối tác tin cậy hàng đầu trong ngành nâng hạ tại Việt Nam, luôn đặt an toàn và hiệu quả của khách hàng lên hàng đầu.',
+  /** Real photo (asset/CEO.jpg) — founder standing in front of company crane equipment. */
+  image: photo('ceo'),
+}
 
 export const nav = [
   { label: 'Trang chủ', href: '/' },
@@ -139,7 +150,7 @@ export const services: Service[] = [
     short: 'Các thiết bị nâng hạ bổ sung theo yêu cầu công việc.',
     description:
       'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     icon: Wrench,
   },
   {
@@ -203,7 +214,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'xe-cau',
     title: 'Xe cẩu',
     short: `Tải trọng từ ${craneCapacitiesTon[0]} tấn đến ${craneCapacitiesTon[craneCapacitiesTon.length - 1]} tấn.`,
-    image: photo('xe-cau-20-tan'),
+    image: photo('xe-cau-250-tan'),
     hasSpecs: true,
     icon: Construction,
   },
@@ -227,7 +238,7 @@ export const equipmentCategories: EquipmentCategory[] = [
     slug: 'thiet-bi-nang-ha-khac',
     title: 'Thiết bị nâng hạ khác',
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     hasSpecs: false,
     icon: Wrench,
   },
@@ -282,7 +293,7 @@ export const equipmentItems: EquipmentItem[] = [
     title: 'Thiết bị nâng hạ khác',
     category: 'Thiết bị nâng hạ khác',
     capacityTon: null,
-    image: img('photo-1642721035664-ce3f84b33fde'),
+    image: photo('thiet-bi-nang-ha-khac-1'),
     short: 'Bổ sung theo yêu cầu cụ thể của công trình.',
     description: 'Ngoài xe nâng và xe cẩu, công ty còn cung cấp các thiết bị nâng hạ khác theo yêu cầu cụ thể của từng công trình. Liên hệ để được tư vấn thiết bị phù hợp.',
     applications: 'Theo yêu cầu cụ thể của từng công trình.',
@@ -376,7 +387,7 @@ export const testimonials: Testimonial[] = [
 
 export const trustMetrics: { value: string; label: string; icon: LucideIcon }[] = [
   { value: company.foundedDate.split('/').at(-1) ?? '', label: 'Năm thành lập', icon: Building2 },
-  { value: `${craneCapacitiesTon.at(-1)} tấn`, label: 'Sức nâng xe cẩu tối đa', icon: Gauge },
+  { value: `${Number(craneCapacitiesTon.at(-1)).toLocaleString('vi-VN')} tấn`, label: 'Sức nâng xe cẩu tối đa', icon: Gauge },
   { value: `${referenceProjects.length}`, label: 'Công trình đã tham gia', icon: Construction },
   { value: 'Có', label: 'Tài xế / vận hành viên đi kèm', icon: UserCheck },
 ]
@@ -390,12 +401,66 @@ export const seo = {
   description: `${company.brandName} cho thuê xe cẩu, xe nâng và thiết bị nâng hạ, phục vụ các công trình dầu khí, điện gió và xây dựng công nghiệp tại ${company.serviceAreas.join(', ')}.`,
 }
 
-// --- Decorative imagery (ảnh minh họa, không phải ảnh thực tế của công ty) ---
+// --- Decorative imagery ---
 
 /** Background slider on the hero section — real company photos, cropped for a wide band. */
 export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
-export const aboutImage = photo('cong-trinh-2')
-export const ctaImage = img('photo-1508791290064-c27cc1ef7a9a')
+/** Real photo — crew and crane at a job site (asset/Worker.jpg). */
+export const aboutImage = photo('worker-1')
+/** Real photo — used as the Giới thiệu page's hero band background. */
+export const aboutHeroImage = photo('cong-trinh-1')
+/** Real photo — crew photo at a job site (asset/Worker_1.jpg), first image on the Giới thiệu page. */
+export const introImage = photo('worker-2')
+
+// --- Page banner content (shared PageBanner component, one entry per page) ---
+
+export type PageBannerKey = 'about' | 'equipment' | 'services' | 'projects' | 'contact'
+
+export type PageBannerContent = {
+  eyebrow: string
+  title: string
+  description: string
+  image: string
+  alt: string
+}
+
+export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
+  about: {
+    eyebrow: `${company.brandName} · Nâng hạ & thiết bị`,
+    title: 'Giới thiệu',
+    description: 'Đồng hành cùng công trình. Vững vàng từng hành trình nâng hạ.',
+    image: aboutHeroImage,
+    alt: 'Xe cẩu tại công trình công nghiệp lớn',
+  },
+  equipment: {
+    eyebrow: 'Xe cẩu · Xe nâng · Thiết bị nâng hạ',
+    title: 'Thiết bị',
+    description: 'Giải pháp thiết bị nâng hạ đáp ứng đa dạng nhu cầu công trình.',
+    image: photo('xe-cau-800-tan'),
+    alt: 'Đội xe cẩu và thiết bị nâng hạ tại bãi tập kết',
+  },
+  services: {
+    eyebrow: 'Nâng hạ · Vận chuyển · Lắp đặt',
+    title: 'Dịch vụ',
+    description: 'Giải pháp nâng hạ và vận chuyển chuyên nghiệp cho công trình công nghiệp.',
+    image: photo('xe-cau-350-tan'),
+    alt: 'Xe cẩu đang thực hiện nâng hạ tại công trình',
+  },
+  projects: {
+    eyebrow: 'Dự án · Công trình công nghiệp',
+    title: 'Công trình',
+    description: 'Đồng hành cùng những công trình lớn với năng lực nâng hạ chuyên nghiệp.',
+    image: photo('cong-trinh-2'),
+    alt: 'Nhiều xe cẩu thi công tại công trình quy mô lớn',
+  },
+  contact: {
+    eyebrow: `${company.brandName} · Liên hệ`,
+    title: 'Liên hệ',
+    description: 'Trao đổi nhu cầu thiết bị và nhận tư vấn phù hợp cho công trình của bạn.',
+    image: aboutImage,
+    alt: 'Đội ngũ Xây Lắp Miền Đông tại công trình',
+  },
+}
 
 export const site = { company, services, equipmentCategories, equipmentItems, referenceProjects }
 export default site

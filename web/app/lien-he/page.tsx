@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { Map, MapPin, Phone } from 'lucide-react'
+import { Map, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
-import { PageHero } from '@/components/ui/page-hero'
+import { PageBanner } from '@/components/ui/page-banner'
 import { ContactForm } from '@/components/contact-form'
-import { company, phoneHref } from '@/data/site'
+import { company, phoneHref, zaloHref } from '@/data/site'
 
 export const metadata: Metadata = {
   title: 'Liên hệ',
@@ -14,7 +14,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ s
   const { service } = await searchParams
   return (
     <Shell>
-      <PageHero title="Liên hệ" text="Gửi nhu cầu của bạn để được tư vấn thiết bị và phương án phù hợp." />
+      <PageBanner page="contact" />
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <div>
           <h2 className="text-2xl font-bold text-primary md:text-3xl">Trao đổi nhu cầu của bạn</h2>
@@ -22,6 +22,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ s
           <div className="mt-8 space-y-5 text-sm">
             <a href={phoneHref} className="flex items-center gap-3 font-bold text-primary hover:text-accent">
               <Phone className="text-accent" size={16} aria-hidden="true" /> {company.phone} ({company.contactPerson})
+            </a>
+            <a href={zaloHref} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 font-bold text-primary hover:text-accent">
+              <MessageCircle className="text-accent" size={16} aria-hidden="true" /> Chat qua Zalo
             </a>
             <p className="flex items-start gap-3 text-foreground">
               <MapPin className="mt-0.5 shrink-0 text-accent" size={16} aria-hidden="true" /> {company.address}

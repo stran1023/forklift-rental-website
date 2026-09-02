@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Factory, Wind } from 'lucide-react'
 import { Shell } from '@/components/layout/shell'
-import { PageHero } from '@/components/ui/page-hero'
+import { PageBanner } from '@/components/ui/page-banner'
 import { ProjectGallery } from '@/components/sections/project-gallery'
 import { company, realProjectPhotos, referenceProjects } from '@/data/site'
 
@@ -18,10 +18,7 @@ const sectors = [
 export default function Page() {
   return (
     <Shell>
-      <PageHero
-        title="Công trình"
-        text="Danh sách công trình công ty đã tham gia thi công. Thông tin chi tiết từng công trình sẽ được cập nhật thêm."
-      />
+      <PageBanner page="projects" />
       <div className="mx-auto max-w-5xl px-5 py-16 lg:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           {sectors.map(({ key, icon: Icon }) => (
