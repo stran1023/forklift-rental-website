@@ -13,7 +13,7 @@ export function EquipmentCard({ item }: { item: EquipmentItem }) {
           aria-hidden="true"
           fill
           sizes="(max-width:768px) 100vw, 33vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-contain p-3 transition duration-500 group-hover:scale-105"
         />
         <span className="absolute top-3 left-3 bg-[var(--brand-navy)] px-2.5 py-1 text-[9px] font-bold tracking-wide text-white uppercase">
           {item.category}
