@@ -23,7 +23,13 @@ export function HeroSlider() {
           />
         </div>
       ))}
-      <div className="absolute inset-0" style={{ backgroundColor: 'var(--brand-navy)', opacity: 0.65 }} />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(to right, rgba(0,55,130,0.82) 0%, rgba(0,55,130,0.70) 50%, rgba(0,55,130,0.55) 100%)',
+        }}
+      />
     </div>
   )
 }

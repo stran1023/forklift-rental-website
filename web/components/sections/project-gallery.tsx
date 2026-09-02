@@ -61,6 +61,7 @@ export function ProjectGallery({ photos }: { photos: string[] }) {
               fill
               sizes="(max-width:768px) 50vw, 25vw"
               className="object-cover transition duration-300 group-hover:scale-105"
+              priority={i < 4}
             />
           </button>
         ))}

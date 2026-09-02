@@ -1,4 +1,4 @@
-import { Search, Truck, Weight } from 'lucide-react'
+import { Forklift, Search, Weight } from 'lucide-react'
 import { IconBadge } from '@/components/ui/icon-badge'
 import { capacityBuckets, equipmentCategoryFilters } from '@/data/site'
 
@@ -16,7 +16,7 @@ export function HeroSearch() {
       <div className="mt-5 grid gap-4">
         <label className="grid gap-1.5 text-sm font-semibold text-foreground">
           <span className="flex items-center gap-1.5">
-            <Truck size={12} className="text-accent" aria-hidden="true" />
+            <Forklift size={12} className="text-accent" aria-hidden="true" />
             Loại thiết bị
           </span>
           <select
