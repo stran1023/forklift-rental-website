@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState, type FormEvent } from 'react'
+import { track } from '@vercel/analytics'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { serviceOptions } from '@/data/site'
 
@@ -53,6 +54,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
 
       if (!res.ok) throw new Error('request failed')
       setSent(true)
+      track('contact_form_submit', { service: String(data.get('service') ?? '') || 'unspecified' })
     } catch {
       setErrors({ submit: 'Gửi yêu cầu thất bại. Vui lòng thử lại hoặc gọi trực tiếp cho chúng tôi.' })
     } finally {

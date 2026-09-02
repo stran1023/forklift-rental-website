@@ -93,6 +93,8 @@ export const company = {
 }
 
 export const phoneHref = `tel:${company.phoneDigits}`
+/** Zalo click-to-chat deep link — Zalo expects the international format (84-prefixed, no leading 0). */
+export const zaloHref = `https://zalo.me/${company.phoneDigits.replace(/^0/, '84')}`
 
 export const founder = {
   name: 'Ông Nguyễn Quang Hòa',

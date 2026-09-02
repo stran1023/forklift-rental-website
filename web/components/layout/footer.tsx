@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { ArrowRight, Map, MapPin, Phone } from 'lucide-react'
+import { ArrowRight, Map, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Logo } from '@/components/logo'
-import { company, nav, phoneHref } from '@/data/site'
+import { company, nav, phoneHref, zaloHref } from '@/data/site'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -38,6 +38,12 @@ export function Footer() {
               <a href={phoneHref} className="hover:text-white">
                 <span className="block text-lg font-bold text-white">{company.phone}</span>
                 <span className="text-white/60">{company.contactPerson}</span>
+              </a>
+            </li>
+            <li className="flex gap-3">
+              <MessageCircle size={14} className="mt-0.5 shrink-0 text-white" aria-hidden="true" />
+              <a href={zaloHref} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                Chat Zalo
               </a>
             </li>
             <li className="flex gap-3">

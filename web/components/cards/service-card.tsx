@@ -17,7 +17,7 @@ export function ServiceCard({ service }: { service: Service }) {
           aria-hidden="true"
           fill
           sizes="(max-width:768px) 100vw, 33vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-contain p-3 transition duration-500 group-hover:scale-105"
         />
         <IconBadge
           icon={service.icon}

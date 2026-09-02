@@ -3,13 +3,15 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Menu, PhoneCall, X } from 'lucide-react'
+import { track } from '@vercel/analytics'
+import { MessageCircle, Menu, PhoneCall, X } from 'lucide-react'
 import { Logo } from '@/components/logo'
-import { nav, phoneHref, company } from '@/data/site'
+import { nav, phoneHref, zaloHref, company } from '@/data/site'
 import { cn } from '@/lib/utils'
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -27,8 +29,20 @@ export function Header() {
     }
   }, [open])
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 shadow-sm backdrop-blur">
+    <header
+      className={cn(
+        'sticky top-0 z-50 border-b bg-background/95 backdrop-blur transition-shadow duration-200',
+        scrolled ? 'border-border shadow-md' : 'border-transparent shadow-sm',
+      )}
+    >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center" aria-label={`${company.brandName} — Trang chủ`}>
           <Logo variant="light" className="h-12 w-auto sm:h-14" />
@@ -60,15 +74,30 @@ export function Header() {
           })}
         </nav>
 
-        <a
-          href={phoneHref}
-          title={company.phone}
-          aria-label={`Liên hệ ngay — gọi ${company.phone}`}
-          className="hidden items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm lg:flex"
-        >
-          <PhoneCall size={14} aria-hidden="true" />
-          LIÊN HỆ NGAY · {company.phone}
-        </a>
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={zaloHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Chat Zalo"
+            aria-label="Chat với chúng tôi qua Zalo"
+            onClick={() => track('zalo_click', { location: 'header_desktop' })}
+            className="flex items-center gap-2 rounded-full border border-primary/25 px-4 py-3.5 text-sm font-bold text-primary transition duration-200 ease-out hover:border-primary/50 hover:bg-secondary"
+          >
+            <MessageCircle size={14} aria-hidden="true" />
+            Zalo
+          </a>
+          <a
+            href={phoneHref}
+            title={company.phone}
+            aria-label={`Liên hệ ngay — gọi ${company.phone}`}
+            onClick={() => track('phone_click', { location: 'header_desktop' })}
+            className="flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out hover:scale-105 hover:shadow-lg active:scale-95 active:shadow-sm"
+          >
+            <PhoneCall size={14} aria-hidden="true" />
+            LIÊN HỆ NGAY · {company.phone}
+          </a>
+        </div>
 
         <button
           type="button"
@@ -101,13 +130,24 @@ export function Header() {
               </Link>
             )
           })}
-          <a
-            href={phoneHref}
-            aria-label={`Liên hệ ngay — gọi ${company.phone}`}
-            className="mt-4 mb-4 flex h-14 items-center justify-center gap-2 rounded-full bg-accent text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out active:scale-95 active:shadow-sm"
-          >
-            <PhoneCall size={14} aria-hidden="true" /> LIÊN HỆ NGAY · {company.phone}
-          </a>
+          <div className="mt-4 mb-4 grid grid-cols-2 gap-2">
+            <a
+              href={zaloHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat với chúng tôi qua Zalo"
+              className="flex h-14 items-center justify-center gap-2 rounded-full border border-primary/25 text-sm font-bold text-primary active:scale-95"
+            >
+              <MessageCircle size={14} aria-hidden="true" /> Zalo
+            </a>
+            <a
+              href={phoneHref}
+              aria-label={`Liên hệ ngay — gọi ${company.phone}`}
+              className="flex h-14 items-center justify-center gap-2 rounded-full bg-accent text-sm font-bold tracking-wide text-accent-foreground shadow-md transition duration-200 ease-out active:scale-95 active:shadow-sm"
+            >
+              <PhoneCall size={14} aria-hidden="true" /> Gọi ngay
+            </a>
+          </div>
         </nav>
       )}
     </header>
