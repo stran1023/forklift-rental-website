@@ -64,12 +64,12 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
 
   if (sent) {
     return (
-      <div role="status" className="flex items-start gap-3 border border-accent bg-accent/5 p-5 text-primary">
-        <CheckCircle2 className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+      <div role="status" className="flex items-start gap-3 border border-green-600 bg-green-50 p-5 text-green-900">
+        <CheckCircle2 className="mt-0.5 shrink-0 text-green-600" aria-hidden="true" />
         <p>
           <b>Đã ghi nhận yêu cầu của bạn.</b>
           <br />
-          <span className="text-sm text-muted-foreground">Chúng tôi sẽ liên hệ lại theo số điện thoại bạn đã cung cấp.</span>
+          <span className="text-sm text-green-700">Chúng tôi sẽ liên hệ lại theo số điện thoại bạn đã cung cấp.</span>
         </p>
       </div>
     )
