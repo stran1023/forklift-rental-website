@@ -76,6 +76,14 @@ select,
 textarea {
   @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
 }
+/* Native <button> defaults to an arrow cursor unlike <a>; make every clickable
+   button feel clickable, but not disabled ones (those should look inert). */
+button:not(:disabled) {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
 h1,
 h2,
 h3 {
