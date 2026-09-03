@@ -15,6 +15,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   const [errors, setErrors] = useState<Errors>({})
   const formRef = useRef<HTMLFormElement>(null)
   const firstErrorRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
+  const mountedAtRef = useRef(Date.now())
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -22,6 +23,8 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
     const name = String(data.get('name') ?? '').trim()
     const phone = String(data.get('phone') ?? '').trim().replace(/[\s.-]/g, '')
     const message = String(data.get('message') ?? '').trim()
+    const website = String(data.get('website') ?? '').trim()
+    const elapsedMs = Date.now() - mountedAtRef.current
 
     const nextErrors: Errors = {}
     if (!name) nextErrors.name = 'Vui lòng nhập họ và tên.'
@@ -49,6 +52,8 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
           service: String(data.get('service') ?? '').trim(),
           duration: String(data.get('duration') ?? '').trim(),
           location: String(data.get('location') ?? '').trim(),
+          website,
+          elapsedMs,
         }),
       })
 
@@ -85,6 +90,14 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
 
   return (
     <form ref={formRef} noValidate onSubmit={handleSubmit} className="grid gap-4">
+      {/* Honeypot — hidden from real users, bots that auto-fill every field will trip it. */}
+      <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label>
+          Website
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
+
       {errorList.length > 0 && (
         <div role="alert" className="border border-destructive/40 bg-destructive/5 p-4 text-sm text-destructive">
           <b>Vui lòng kiểm tra lại thông tin:</b>
