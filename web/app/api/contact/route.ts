@@ -4,19 +4,26 @@ import { z } from 'zod'
 const phonePattern = /^(0|\+84)\d{9,10}$/
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1),
+  name: z.string().trim().min(1).max(100),
   phone: z
     .string()
     .trim()
+    .max(30)
     .transform((v) => v.replace(/[\s.-]/g, ''))
     .refine((v) => phonePattern.test(v), 'invalid phone'),
-  email: z.string().trim().email().optional().or(z.literal('')),
-  companyName: z.string().trim().optional(),
-  service: z.string().trim().optional(),
-  duration: z.string().trim().optional(),
-  location: z.string().trim().optional(),
-  message: z.string().trim().min(1),
+  email: z.string().trim().max(254).email().optional().or(z.literal('')),
+  companyName: z.string().trim().max(200).optional(),
+  service: z.string().trim().max(200).optional(),
+  duration: z.string().trim().max(200).optional(),
+  location: z.string().trim().max(200).optional(),
+  message: z.string().trim().min(1).max(2000),
+  // Spam signals — not part of the visible form contract, see contact-form.tsx.
+  website: z.string().max(500).optional(),
+  elapsedMs: z.number().optional(),
 })
+
+/** Minimum time a real visitor needs to fill the form; bots that submit instantly land under this. */
+const MIN_SUBMIT_MS = 2000
 
 function escapeHtml(value: string) {
   return value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string)
@@ -44,6 +51,13 @@ export async function POST(request: Request) {
   }
 
   const lead = parsed.data
+
+  // Bot signals: honeypot filled, or submitted faster than a human could fill the form.
+  // Respond as if it succeeded so bots don't notice and retry — just don't send anything.
+  const looksLikeBot = Boolean(lead.website) || (lead.elapsedMs !== undefined && lead.elapsedMs < MIN_SUBMIT_MS)
+  if (looksLikeBot) {
+    return Response.json({ ok: true })
+  }
   const rows: [string, string | undefined][] = [
     ['Họ và tên', lead.name],
     ['Số điện thoại', lead.phone],
