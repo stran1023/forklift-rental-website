@@ -7,8 +7,8 @@ export function Logo({ variant = 'light', className = 'h-11 w-auto' }: { variant
     <Image
       src={src}
       alt={`${company.brandName} — ${company.legalName}`}
-      width={854}
-      height={358}
+      width={1100}
+      height={455}
       priority
       className={className}
       style={{ width: 'auto' }}

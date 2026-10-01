@@ -1,6 +1,6 @@
-# Xây Lắp Miền Đông — Rental Website Engineering Harness
+# Logistics Gia Huy Phát — Rental Website Engineering Harness
 
-Vietnamese lead-generation website for **Xây Lắp Miền Đông** (Công Ty TNHH Dịch Vụ Xây Lắp Miền Đông / Eastern S&C Company Limited), a crane, forklift, and lifting-equipment rental company.
+Vietnamese lead-generation website for **Logistics Gia Huy Phát** (Công ty TNHH dịch vụ Logistics Gia Huy Phát, "GHP"), a crane, forklift, and lifting-equipment rental company.
 
 The Next.js app lives in [`web/`](./web) — this root only holds the engineering harness (docs, progress tracking, agent instructions) and source-of-truth assets, not a second package.
 
@@ -16,8 +16,8 @@ The Next.js app lives in [`web/`](./web) — this root only holds the engineerin
 
 ## Source of truth
 
-- `docs/Thong_Tin_Website_Eastern_SC.md` — verified business content (company info, services, equipment, reference projects). Only facts from this file (and `asset/logo.jpg` for branding) may appear on the site — see the "Never invent company facts" rule in `AGENTS.md`.
-- `asset/logo.jpg` — official logo, source for the brand palette and the cropped assets in `web/public/`.
+- `docs/Thong_Tin_Website_Eastern_SC.md` — verified business content (company info, services, equipment, reference projects). Only facts from this file (and `asset/new_logo.jpg` for branding) may appear on the site — see the "Never invent company facts" rule in `AGENTS.md`.
+- `asset/new_logo.jpg` — official logo, source for the brand palette and the derived assets in `web/public/`. `asset/logo.jpg` is the superseded pre-rebrand mark, kept for reference only.
 
 ## Product principles
 

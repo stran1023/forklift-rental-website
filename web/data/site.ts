@@ -1,4 +1,4 @@
-// Verified content only — sourced from docs/Thong_Tin_Website_Eastern_SC.md, asset/logo.jpg,
+// Verified content only — sourced from docs/Thong_Tin_Website_Eastern_SC.md, asset/new_logo.jpg,
 // and real company photos in asset/{xe_cau,xe_nang,xe_nang_nguoi,cong_trinh}/ (copied into public/photos/).
 // Do not add facts, claims, prices, or contact details that are not verified in that document.
 
@@ -80,9 +80,10 @@ export type Testimonial = {
 }
 
 export const company = {
-  legalName: 'Công Ty TNHH Dịch Vụ Xây Lắp Miền Đông',
-  brandName: 'Xây Lắp Miền Đông',
-  englishName: 'Eastern S&C Company Limited',
+  legalName: 'Công ty TNHH dịch vụ Logistics Gia Huy Phát',
+  brandName: 'Logistics Gia Huy Phát',
+  /** Initials on the logo mark. */
+  shortName: 'GHP',
   foundedDate: '19/05/2020',
   address: '15A Viba, Phường Vũng Tàu, TP. Hồ Chí Minh',
   phone: '0986.371.079',
@@ -100,7 +101,7 @@ export const founder = {
   name: 'Ông Nguyễn Quang Hòa',
   title: 'Giám đốc điều hành',
   quote:
-    'Tại EASTERN S&C COMPANY LIMITED, chúng tôi không chỉ cung cấp thiết bị, chúng tôi cung cấp sự an tâm và giải pháp tối ưu cho mọi công trình. Tầm nhìn của chúng tôi là trở thành đối tác tin cậy hàng đầu trong ngành nâng hạ tại Việt Nam, luôn đặt an toàn và hiệu quả của khách hàng lên hàng đầu.',
+    'Tại Logistics Gia Huy Phát, chúng tôi không chỉ cung cấp thiết bị, chúng tôi cung cấp sự an tâm và giải pháp tối ưu cho mọi công trình. Tầm nhìn của chúng tôi là trở thành đối tác tin cậy hàng đầu trong ngành nâng hạ tại Việt Nam, luôn đặt an toàn và hiệu quả của khách hàng lên hàng đầu.',
   /** Real photo (asset/CEO.jpg) — founder standing in front of company crane equipment. */
   image: photo('ceo'),
 }
@@ -458,7 +459,7 @@ export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
     title: 'Liên hệ',
     description: 'Trao đổi nhu cầu thiết bị và nhận tư vấn phù hợp cho công trình của bạn.',
     image: aboutImage,
-    alt: 'Đội ngũ Xây Lắp Miền Đông tại công trình',
+    alt: 'Đội ngũ Logistics Gia Huy Phát tại công trình',
   },
 }
 
