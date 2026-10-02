@@ -432,6 +432,17 @@ export type PageBannerContent = {
   description: string
   image: string
   alt: string
+  /**
+   * Tailwind object-position classes for the banner photo, overridable per page.
+   * The banner photos are wide panoramas with their main subject toward the
+   * right edge, which is why the default (unset) crops to the right at every
+   * breakpoint. On the narrow aspect-[4/3]/aspect-[16/9] mobile and tablet
+   * crops that right-most sliver sometimes misses the subject entirely (e.g.
+   * contact's worker, projects' suspended load), so those two pages pull the
+   * focal point further left below lg, where the wide aspect-[5/1] desktop
+   * crop has room to show the whole scene anyway.
+   */
+  imagePosition?: string
 }
 
 export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
@@ -462,6 +473,7 @@ export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
     description: 'Đồng hành cùng những công trình lớn với năng lực nâng hạ chuyên nghiệp.',
     image: photo('banner-cong-trinh'),
     alt: 'Xe cẩu nâng cấu kiện bê tông tại công trình lúc hoàng hôn',
+    imagePosition: 'object-[75%_50%] lg:object-right',
   },
   contact: {
     eyebrow: `${company.brandName} · Liên hệ`,
@@ -469,6 +481,7 @@ export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
     description: 'Trao đổi nhu cầu thiết bị và nhận tư vấn phù hợp cho công trình của bạn.',
     image: contactHeroImage,
     alt: 'Giám sát Logistics Gia Huy Phát trao đổi hiện trường bên đội xe cẩu',
+    imagePosition: 'object-[60%_50%] lg:object-right',
   },
 }
 
