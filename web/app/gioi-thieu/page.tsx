@@ -22,7 +22,7 @@ export default function Page() {
         <div>
           <h2 className="text-3xl font-bold text-primary md:text-4xl">Thiết bị đúng nhu cầu, phương án rõ ràng</h2>
           <p className="mt-5 leading-8 text-muted-foreground">
-            {company.brandName} ({company.englishName}) cung cấp dịch vụ cho thuê xe cẩu, xe nâng, xe nâng người và thiết bị nâng hạ
+            {company.brandName} ({company.shortName}) cung cấp dịch vụ cho thuê xe cẩu, xe nâng, xe nâng người và thiết bị nâng hạ
             khác cho các doanh nghiệp, nhà xưởng và công trình. Công ty đã tham gia thi công các công trình trọng điểm ngành dầu khí
             và điện gió.
           </p>
