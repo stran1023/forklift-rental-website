@@ -28,8 +28,15 @@ const photo = (name: string) => `/photos/${name}.jpg`
 export const realForkliftImages = [photo('xe-nang-1'), photo('xe-nang-2')]
 /** Real xe nâng người (personnel lift) photo. */
 export const realPersonnelLiftImage = photo('xe-nang-nguoi-1')
-/** Real job-site photos (not tied to a specific named project — see referenceProjects). */
-export const realProjectPhotos = Array.from({ length: 28 }, (_, i) => photo(`cong-trinh-${i + 1}`))
+/**
+ * Real job-site photos, grouped by sector (not tied to a specific named
+ * project — see referenceProjects). File numbering has gaps because it
+ * mirrors the source photo batches, not a continuous sequence.
+ */
+export const oilGasProjectPhotos = [1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30].map(
+  (n) => photo(`cong-trinh-dau-khi-${n}`),
+)
+export const windPowerProjectPhotos = [1, 2, 3, 4, 5].map((n) => photo(`cong-trinh-dien-gio-${n}`))
 
 export type Service = {
   slug: string
