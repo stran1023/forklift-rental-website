@@ -416,7 +416,7 @@ export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('
 /** Real photo — crew and crane at a job site (asset/Worker.jpg). */
 export const aboutImage = photo('worker-1')
 /** Real photo — used as the Giới thiệu page's hero band background. */
-export const aboutHeroImage = photo('cong-trinh-1')
+export const aboutHeroImage = photo('cong-trinh-dau-khi-1')
 /** Real photo — crew photo at a job site (asset/Worker_1.jpg), first image on the Giới thiệu page. */
 export const introImage = photo('worker-2')
 
@@ -458,7 +458,7 @@ export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
     eyebrow: 'Dự án · Công trình công nghiệp',
     title: 'Công trình',
     description: 'Đồng hành cùng những công trình lớn với năng lực nâng hạ chuyên nghiệp.',
-    image: photo('cong-trinh-2'),
+    image: photo('cong-trinh-dau-khi-2'),
     alt: 'Nhiều xe cẩu thi công tại công trình quy mô lớn',
   },
   contact: {
