@@ -415,10 +415,12 @@ export const seo = {
 export const heroSlides = [photo('hero-slide-1'), photo('hero-slide-2'), photo('hero-slide-3')]
 /** Real photo — crew and crane at a job site (asset/Worker.jpg). */
 export const aboutImage = photo('worker-1')
-/** Real photo — used as the Giới thiệu page's hero band background. */
-export const aboutHeroImage = photo('cong-trinh-dau-khi-1')
+/** Giới thiệu page's hero band background — cropped from asset/banner-refer.png. */
+export const aboutHeroImage = photo('banner-gioi-thieu')
 /** Real photo — crew photo at a job site (asset/Worker_1.jpg), first image on the Giới thiệu page. */
 export const introImage = photo('worker-2')
+/** Liên hệ page's hero band background — cropped from asset/banner-refer.png. */
+export const contactHeroImage = photo('banner-lien-he')
 
 // --- Page banner content (shared PageBanner component, one entry per page) ---
 
@@ -430,6 +432,17 @@ export type PageBannerContent = {
   description: string
   image: string
   alt: string
+  /**
+   * Tailwind object-position classes for the banner photo, overridable per page.
+   * The banner photos are wide panoramas with their main subject toward the
+   * right edge, which is why the default (unset) crops to the right at every
+   * breakpoint. On the narrow aspect-[4/3]/aspect-[16/9] mobile and tablet
+   * crops that right-most sliver sometimes misses the subject entirely (e.g.
+   * contact's worker, projects' suspended load), so those two pages pull the
+   * focal point further left below lg, where the wide aspect-[5/1] desktop
+   * crop has room to show the whole scene anyway.
+   */
+  imagePosition?: string
 }
 
 export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
@@ -444,29 +457,31 @@ export const pageBanners: Record<PageBannerKey, PageBannerContent> = {
     eyebrow: 'Xe cẩu · Xe nâng · Thiết bị nâng hạ',
     title: 'Thiết bị',
     description: 'Giải pháp thiết bị nâng hạ đáp ứng đa dạng nhu cầu công trình.',
-    image: photo('xe-cau-800-tan'),
-    alt: 'Đội xe cẩu và thiết bị nâng hạ tại bãi tập kết',
+    image: photo('banner-thiet-bi'),
+    alt: 'Đội xe cẩu, xe tải và xe nâng tại bãi tập kết thiết bị',
   },
   services: {
     eyebrow: 'Nâng hạ · Vận chuyển · Lắp đặt',
     title: 'Dịch vụ',
     description: 'Giải pháp nâng hạ và vận chuyển chuyên nghiệp cho công trình công nghiệp.',
-    image: photo('xe-cau-350-tan'),
-    alt: 'Xe cẩu đang thực hiện nâng hạ tại công trình',
+    image: photo('banner-dich-vu'),
+    alt: 'Xe cẩu nâng hạ thiết bị cùng đội ngũ kỹ thuật tại công trình',
   },
   projects: {
     eyebrow: 'Dự án · Công trình công nghiệp',
     title: 'Công trình',
     description: 'Đồng hành cùng những công trình lớn với năng lực nâng hạ chuyên nghiệp.',
-    image: photo('cong-trinh-dau-khi-2'),
-    alt: 'Nhiều xe cẩu thi công tại công trình quy mô lớn',
+    image: photo('banner-cong-trinh'),
+    alt: 'Xe cẩu nâng cấu kiện bê tông tại công trình lúc hoàng hôn',
+    imagePosition: 'object-[75%_50%] lg:object-right',
   },
   contact: {
     eyebrow: `${company.brandName} · Liên hệ`,
     title: 'Liên hệ',
     description: 'Trao đổi nhu cầu thiết bị và nhận tư vấn phù hợp cho công trình của bạn.',
-    image: aboutImage,
-    alt: 'Đội ngũ Logistics Gia Huy Phát tại công trình',
+    image: contactHeroImage,
+    alt: 'Giám sát Logistics Gia Huy Phát trao đổi hiện trường bên đội xe cẩu',
+    imagePosition: 'object-[60%_50%] lg:object-right',
   },
 }
 
