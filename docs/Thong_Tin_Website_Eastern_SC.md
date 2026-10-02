@@ -1,4 +1,4 @@
-# Thông tin Website – Eastern S&C Company Limited
+# Thông tin Website – Công ty TNHH dịch vụ Logistics Gia Huy Phát
 
 *Trích xuất từ Phiếu Thu Thập Thông Tin Website (chỉ giữ lại nội dung đã điền, đã bỏ các mục còn trống)*
 
@@ -6,8 +6,8 @@
 
 | Hạng mục | Thông tin |
 |---|---|
-| Tên công ty đầy đủ | Công Ty TNHH Dịch Vụ Xây Lắp Miền Đông |
-| Tên thương hiệu | EASTERN S&C COMPANY LIMITED |
+| Tên công ty đầy đủ | Công ty TNHH dịch vụ Logistics Gia Huy Phát |
+| Tên thương hiệu | LOGISTICS GIA HUY PHÁT (GHP) |
 | Năm thành lập | 19/05/2020 |
 | Địa chỉ trụ sở | 15A Viba, P. Vũng Tàu, TPHCM |
 | Khu vực phục vụ | Ninh Thuận, Bình Thuận, Bình Dương, TPHCM, Cà Mau... |

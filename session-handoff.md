@@ -22,7 +22,7 @@
 - Highest-priority unfinished feature: feat-001's mobile-viewport check, then feat-002 (Supabase) when ready to move `data/site.ts` content into a database per AGENTS.md.
 - Why it is next: everything else (feat-003 exit criteria, feat-004 admin) depends on the DB layer; the mobile check is the last open item blocking feat-001.
 - What counts as passing: real narrow-viewport (375–414px) screenshot showing header hamburger menu, mobile CTA bar, and no horizontal scroll on Home/Liên hệ.
-- What must not change: do not invent business content not present in `docs/Thong_Tin_Website_Eastern_SC.md` or `asset/logo.jpg` — this was a hard constraint this session and several placeholder facts (fake FAQ, fake process steps, fake equipment models, fake project locations/dates) were deliberately removed rather than kept.
+- What must not change: do not invent business content not present in `docs/Thong_Tin_Website_Eastern_SC.md` or `asset/new_logo.jpg` — this was a hard constraint this session and several placeholder facts (fake FAQ, fake process steps, fake equipment models, fake project locations/dates) were deliberately removed rather than kept.
 - Recommended Next Step: fix/replace the viewport-resize path in the browser tool (or test on a real phone/emulator), then start Milestone 2 (Drizzle schema + Supabase) and rewire `data/site.ts` reads to the DB.
 
 ## Commands
