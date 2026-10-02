@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import { Factory, Wind } from 'lucide-react'
 import { SectionHeading } from '@/components/ui/section-heading'
-import { realProjectPhotos, referenceProjects } from '@/data/site'
+import { oilGasProjectPhotos, referenceProjects, windPowerProjectPhotos } from '@/data/site'
 
 const sectors = [
   { key: 'Dầu khí' as const, icon: Factory },
   { key: 'Điện gió' as const, icon: Wind },
 ]
 
-const galleryPhotos = [realProjectPhotos[2], realProjectPhotos[8], realProjectPhotos[15], realProjectPhotos[22]]
+const galleryPhotos = [oilGasProjectPhotos[2], oilGasProjectPhotos[8], windPowerProjectPhotos[1], windPowerProjectPhotos[3]]
 
 export function ReferenceProjects() {
   return (
