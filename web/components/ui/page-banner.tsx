@@ -8,11 +8,11 @@ import { pageBanners, type PageBannerKey } from '@/data/site'
  * simpler PageHero instead, since they have no curated banner photo.
  */
 export function PageBanner({ page }: { page: PageBannerKey }) {
-  const { eyebrow, title, description, image, alt } = pageBanners[page]
+  const { eyebrow, title, description, image, alt, imagePosition } = pageBanners[page]
 
   return (
     <section className="relative aspect-[4/3] w-full overflow-hidden bg-[#061C33] sm:aspect-[16/9] lg:aspect-[5/1]">
-      <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover object-right" />
+      <Image src={image} alt={alt} fill priority sizes="100vw" className={`object-cover ${imagePosition ?? 'object-right'}`} />
       <div
         className="absolute inset-0"
         style={{
